@@ -13,7 +13,7 @@ session_start();
 <body>
 <?php
   // Include the database connection
-  include_once "./controllers/conncet.php";
+  include "./Controllers/conncet.php";
   if (empty($_GET['page']) || !ctype_alnum(str_replace(['-', '_'], '', $_GET['page'])) || !file_exists("pages/{$_GET['page']}.php")) {
         die(header('Location: ?page=login'));
     }

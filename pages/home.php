@@ -13,8 +13,8 @@
 
 <body>
 <?php
-   include_once "./components/navbar.php";
-   include_once "./components/sidebar.php";
+   require_once "./components/navbar.php";
+   require_once "./components/sidebar.php";
 
 ?>
 

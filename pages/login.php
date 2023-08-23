@@ -6,8 +6,8 @@
                     <div class="card text-white" style="background: #454ABB; border-radius: 1rem;">
                         <div class="card-body p-5 text-center">
                             <?php
-                            include_once "./components/boostrap.html";
-                            include_once "./Controllers/login.php";
+                            require_once "./components/boostrap.html";
+                            require_once "./Controllers/login.php";
                             ?>
                             <img src="./public/img/TATC_Logo.png" width="150" class="rounded-circle border-10px">
                             <div class="mb-md-0 mt-md-4 pb-2 ">
