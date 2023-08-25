@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <?php require_once "./Controllers/conncet.php";?>
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <div class="sidebar_a" >

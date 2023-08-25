@@ -10,7 +10,7 @@
 <body>
     <?php
     include_once "./components/BSCss.html";
-    include_once "./Controllers/selectUser.php";
+  
     ?>
 
     <nav class="navbar navbar-expand-lg navbar-light  fixed-top" style=" background: #454ABB;">
