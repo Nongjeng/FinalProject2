@@ -14,5 +14,5 @@ $connect = mysqli_connect($host, $username, $password,$dbname);
 if ($connect->connect_error) {
     die("การเชื่อมต่อล้มเหลว: " . $connect->connect_error);
 }
-
+mysqli_set_charset($connect, "utf8");
 ?>
