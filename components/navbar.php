@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Leave System</title>
-    <link rel="stylesheet" href="./components/forindex.css">
-</head>
-
-<body>
     <?php
     include_once "./components/BSCss.html";
-  
+
     ?>
 
     <nav class="navbar navbar-expand-lg navbar-light  fixed-top" style=" background: #BA0900;">
@@ -38,18 +28,14 @@
 
                 </ul>
                 <ul class="navbar-nav mt-1">
-                    <li class="nav-item" id="nav-item" >
-                    <a href="User.php" class="text-white no-underline"><i class="bi bi-person-circle fs-5"></i>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo "$STD_Name $STD_Lastname"; ?></a>
+                    <li class="nav-item" id="nav-item">
+                        <a href="User.php" class="text-white no-underline"><i class="bi bi-person-circle fs-5"></i>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo "$STD_Name $STD_Lastname"; ?></a>
                     </li>
 
                 </ul>
             </div>
         </div>
     </nav>
-
     <?php
     include_once "./components/footer.html";
     ?>
-</body>
-
-</html>
