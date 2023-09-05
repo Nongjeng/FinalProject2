@@ -1,5 +1,24 @@
-    <?php
+<?php
     include_once "./components/BSCss.html";
+    $STD_ID = $_SESSION['STD_ID'];
+    $sql = "SELECT * FROM std WHERE STD_ID ='$STD_ID'";
+    $result = mysqli_query($connect, $sql); 
+    if($result){
+        $row = mysqli_fetch_assoc($result);
+        $STD_Name = $row['STD_Name'];
+        $STD_Lname =$row['STD_Lastname'];
+        $Prefix_ID =$row['Prefix_ID'];
+        
+        $sql_Prefix = "SELECT * FROM prefix WHERE Prefix_ID ='$Prefix_ID'";
+        $result_prefix = mysqli_query($connect, $sql_Prefix); 
+        if($result_prefix){
+            $row = mysqli_fetch_assoc($result_prefix);
+            $Prefix_Name = $row['Prefix_Name'];
+        }
+    }else{
+        echo "Eror in " . $sql;
+    }
+    
 
     ?>
 
@@ -29,7 +48,7 @@
                 </ul>
                 <ul class="navbar-nav mt-1">
                     <li class="nav-item" id="nav-item">
-                        <a href="User.php" class="text-white no-underline"><i class="bi bi-person-circle fs-5"></i>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo "$STD_Name $STD_Lastname"; ?></a>
+                        <a href="User.php" class="text-white no-underline"><i class="bi bi-person-circle fs-5"></i>&nbsp;&nbsp;<?php echo "$Prefix_Name"; ?>&nbsp;&nbsp;<?php echo "$STD_Name  $STD_Lname"; ?></a>
                     </li>
 
                 </ul>
