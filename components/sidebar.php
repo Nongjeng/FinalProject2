@@ -1,9 +1,9 @@
 <!-- Sidebar -->
 <div class="sidebar" id="sidebar">
     <div class="sidebar_a">
-        <a href="?page=User"  title="ข้อมูลผู้ใช้" class="text-white no-underline"> <img src="./public/img/Edituser-W.png" width="50"></a>
-        <a href="?page=LeaveHistory" title="ประวัติการลา" class="text-white no-underline "><i class="fas fa-history "></i></a>
-        <a href="?page=schedule" title="ตารางเรียน" class="text-white no-underline"> <i class="bi bi-calendar-fill icon-calendar "></i></a>
+        <a href="?page=User"  title="ข้อมูลผู้ใช้" class="text-white no-underline" data-bs-toggle="tooltip" > <img src="./public/img/Edituser-W.png" width="50"></a>
+        <a href="?page=LeaveHistory" title="ประวัติการลา" class="text-white no-underline" data-bs-toggle="tooltip" ><i class="fas fa-history "></i></a>
+        <a href="?page=schedule" title="ตารางเรียน" class="text-white no-underline" data-bs-toggle="tooltip" > <i class="bi bi-calendar-fill icon-calendar "></i></a>
         <div class="sidebar_logout">
             <a href="login.php" class="text-white no-underline">Logout</a>
         </div>
