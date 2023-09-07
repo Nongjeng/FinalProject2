@@ -1,11 +1,8 @@
 <?php
 include "./components/navbar.php";
 include "./components/sidebar.php";
-
 ?>
-<!-- Your HTML content here -->
 <div class="content">
-    <div class=" vh-100 vw-100">
         <div class="container mt-4">
             <div class="row">
                 <div class="col-12">
@@ -102,5 +99,4 @@ include "./components/sidebar.php";
                 </div>
             </div>
         </div>
-    </div>
 </div>

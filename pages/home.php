@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
-  <link rel="stylesheet" href="./components/forindex.css">
-  <link rel="stylesheet" href="./components/sidebar_com.css">
-
-
-</head>
-
-<body>
 <?php
    require_once "./components/navbar.php";
    require_once "./components/sidebar.php";
@@ -129,7 +115,3 @@
       </div>
     </div>
   </div>
-
-</body>
-
-</html>

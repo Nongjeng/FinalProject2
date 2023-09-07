@@ -9,7 +9,8 @@ session_start();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" href="./components/forindex.css">
+  <link rel="stylesheet" href="./components/sidebar_com.css">
 </head>
 
 <body>
@@ -21,8 +22,3 @@ session_start();
   }
   require_once "./pages/{$_GET['page']}.php";
   ?>
-
-
-</body>
-
-</html>

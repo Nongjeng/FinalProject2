@@ -1,7 +1,7 @@
 .sidebar {
     margin: 0;
     padding: 0;
-    width: 230px;
+    width: 100px;
     background-color: #707070;
     position: fixed;
     height: 100%;
@@ -35,29 +35,7 @@
 }
 
 div.content {
-    margin-left: 130px;
+    margin-left: 200px;
     padding: 1px 16px;
     height: 20%;
 }
-
-
-/* @media screen and (max-width: 700px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
-    .sidebar a {
-        float: left;
-    }
-    div.content {
-        margin-left: 0;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .sidebar a {
-        text-align: center;
-        float: none;
-    }
-} */

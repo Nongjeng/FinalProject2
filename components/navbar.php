@@ -34,7 +34,7 @@
                 </li>
 
                 <li class="nav-item mt-2 ml">
-                    <a class="nav-link text-white" href="index.php">วิทยาลัยเทคนิคสัตหีบ</a>
+                    <a class="nav-link text-white" href="?page=home">วิทยาลัยเทคนิคสัตหีบ</a>
                 </li>
 
 
@@ -48,7 +48,7 @@
                 </ul>
                 <ul class="navbar-nav mt-1">
                     <li class="nav-item" id="nav-item">
-                        <a href="User.php" class="text-white no-underline"><i class="bi bi-person-circle fs-5"></i>&nbsp;&nbsp;<?php echo "$Prefix_Name"; ?>&nbsp;&nbsp;<?php echo "$STD_Name  $STD_Lname"; ?></a>
+                        <a href="?page=User" class="text-white no-underline"><i class="bi bi-person-circle fs-5"></i>&nbsp;&nbsp;<?php echo "$Prefix_Name"; ?>&nbsp;&nbsp;<?php echo "$STD_Name  $STD_Lname"; ?></a>
                     </li>
 
                 </ul>
