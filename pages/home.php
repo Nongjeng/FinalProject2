@@ -1,46 +1,51 @@
 <?php
-   require_once "./components/navbar.php";
-   require_once "./components/sidebar.php";
+require_once "./components/navbar.php";
+require_once "./components/sidebar.php";
+require_once "./Controllers/Leave_inster.php";
 
 ?>
 
 <div class="content">
-<h2 class="d-flex justify-content-center my-3">บันทึกการลา</h2>
+    <h2 class="d-flex justify-content-center my-3">บันทึกการลา</h2>
     <div>
       <div class="container d-flex justify-content-center align-content-center">
-        <fo rm method="post">
+        <form method="post">
           <div class="card text-bg-secondary mb-3" style="width: 1000px;">
             <div class="card-body">
 
-              <!-- query insert -->
-              <?php
-
-              ?>
               <!-- แถวแรก -->
               <div class="row mt-3">
 
                 <div class="col-md-3">
                   <div class="form-group">
                     <label for="">วันที่เริ่มลา</label>
-                    <input type="date" name="startdate" class="form-control">
+                    <input type="date" name="startleave" class="form-control">
                   </div>
                 </div>
                 <div class="col-md-3">
                   <div class="form-group">
                     <label for="">ถึงวันที่</label>
-                    <input type="date" name="enddate" class="form-control">
+                    <input type="date" name="endleave" class="form-control">
                   </div>
                 </div>
                 <div class="col-md-3">
                   <div class=" form-group">
                     <label for="">ตั้งแต่เวลา</label>
-                    <select name="start_time" id="start_time" class=" form-control"></select>
+                    <select name="start_time" id="start_time" class=" form-control">
+                      <option value="08:00">08:00</option>
+                      <option value="09:00">09:00</option>
+                      <option value="10:00">10:00</option>
+                    </select>
                   </div>
                 </div>
                 <div class="col-md-3">
                   <div class=" form-group">
                     <label for="">ถึงเวลา</label>
-                    <select name="end_time" id="end_time" class=" form-control"></select>
+                    <select name="end_time" id="end_time" class=" form-control">
+                      <option value="12:00">12:00</option>
+                      <option value="13:00">13:00</option>
+                      <option value="14:00">14:00</option>
+                    </select>
                   </div>
                 </div>
 
@@ -51,7 +56,7 @@
                 <div class="col-md-7">
                   <div class=" form-group">
                     <label for="">เหตุผลการลา</label>
-                    <textarea name="" id="" class=" form-control" style="  height: 7rem;width: 29rem;padding: 5px;"></textarea>
+                    <textarea name="comment" id="comment" class=" form-control" style="  height: 7rem;width: 29rem;padding: 5px;"></textarea>
                     <!-- <input type="text" name="comment" class=" form-control"> -->
                   </div>
                 </div>
@@ -73,13 +78,6 @@
                       ?>
                     </select>
                   </div>
-
-                  <!-- <div class="col">
-                    <div class=" form-group">
-                      <label for="">วิชาที่ลาได้</label>
-                      <select name="subject" id="" class=" form-control"></select>
-                    </div>
-                  </div> -->
                 </div>
               </div>
 
@@ -91,8 +89,9 @@
                 </div>
                 <div class="col " style="margin-left: 50px;">
                   <div class=" form-group">
-                    <label for="">ประเภทการลา</label>
-                    <select name="leavetype" id="" class=" form-control"></select>
+                    <label for="">วิชาที่ลาได้</label>
+                    <input type="text" name="" id="">
+                    <!-- <select name="" id="" class=" form-control"></select> -->
                   </div>
                 </div>
 
@@ -105,13 +104,15 @@
                   <input type="file" name="attachfile" id="attachfile">
                   <p style="margin-top: 10px; margin-bottom: 0;color: red;">** หมายเหตุ กรณีที่ลาป่วยเกิน 3 วันควรมีใบรับรองแพทย์ในการยืนยัน</p>
                 </div>
+
                 <div class="col">
-                  <button class=" btn bg-success form-control" style="width: 200px; height: 50px; margin-left: 99px; margin-top: 55px; color: white;">บันทึกการลา</button>
+                  <input type="hidden" name="leaveid" value="<?php echo generateNewProvinceId($connect); ?>">
+                  <button class=" btn bg-success form-control" name="save" id="save" style="width: 200px; height: 50px; margin-left: 99px; margin-top: 55px; color: white;">บันทึกการลา</button>
                 </div>
               </div>
             </div>
           </div>
-          </form>
+        </form>
       </div>
     </div>
   </div>
