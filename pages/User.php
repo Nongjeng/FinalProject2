@@ -2,7 +2,7 @@
 include "./components/navbar.php";
 include "./components/sidebar.php";
 ?>
-<div class="content">
+<div class="content" >
     <div class="container mt-3">
         <div class="row">
             <div class="col-12">
