@@ -1,6 +1,7 @@
 <?php
 include "./components/navbar.php";
 include "./components/sidebar.php";
+
 ?>
 <div class="content" >
     <div class="container mt-3">
@@ -44,7 +45,7 @@ include "./components/sidebar.php";
                     <label for="birthdate">วันเดือนปีเกิด :</label>
                     <input type="text" class="form-control" id="birthdate" value="<?php echo "$STD_Birth"; ?>" disabled>
                 </div>
-                <div class="form-group d-flex">
+                <div class="form-group d-flex mt-3">
                     <label for="address" class=" text-nowrap">ที่อยู่ :</label>
                     <input type="text" class="form-control form mx-2" id="address" style="width: 250px;" value="<?php echo "$STD_Address"; ?>" disabled>
                     <?php
@@ -71,7 +72,7 @@ include "./components/sidebar.php";
                     <label for="parent-name">ชื่อผู้ปกครอง :</label>
                     <input type="text" class="form-control" id="parent-name" value="<?php echo "$Parent_Name"; ?>" disabled>
                 </div>
-                <div class="form-group d-flex">
+                <div class="form-group d-flex mt-3">
                     <label for="district" class=" text-nowrap">ตำบล :</label>
                     <!-- <select name="districts" id="districts" class=" form-control" style="margin-left: 13px;"></select> -->
                     <input type="text" class="form-control form " name="districts" id="districts" style="margin-left: 10px;" value="<?php echo $fetch_all['d_name_th']; ?>" disabled>
@@ -85,7 +86,7 @@ include "./components/sidebar.php";
 
         <div class="row">
             <div class="col-4">
-                <div class="form-group d-flex">
+                <div class="form-group d-flex mt-3">
                     <label for="subdistrict" class=" text-nowrap">รหัสไปรษณีย์ :</label>
                     <input type="text" class="form-control form mx-2" name="zipcode" id="zipcode" style="width: 175px;" value="<?php echo $fetch_all['zip_code']; ?>" disabled>
                 </div>
@@ -94,8 +95,8 @@ include "./components/sidebar.php";
 
         <div class="row mt-3">
             <div class="col-12 text-center">
-                <button class="btn btn-success mr-3" onclick="window.location.href = 'EditUser.php';">แก้ไขข้อมูล</button>
-                <button class="btn btn-danger" onclick="window.location.href = 'index.php';">กลับหน้าหลัก</button>
+                <button class="btn btn-success mr-3" onclick="window.location.href = '?page=EditUser';">แก้ไขข้อมูล</button>
+                <button class="btn btn-danger" onclick="window.location.href = '?page=home';">กลับหน้าหลัก</button>
             </div>
         </div>
     </div>
