@@ -22,7 +22,7 @@
 
                                  <div class="d-flex justify-content-between align-items-center">
 
-                                     <p class="mb-0"><a href="?page=login" class="text-white-50 fw-bold" style="text-decoration: none;">เช้าสู่ระบบด้วยรหัสนักศึกษา</a>
+                                     <p class="mb-0"><a href="?page=login" class="text-white-50 fw-bold" style="text-decoration: none; font-size:  19px; ">เช้าสู่ระบบด้วยรหัสนักศึกษา</a>
 
                                      </p>
                                      <button class="btn btn-outline-light btn-lg px-5" name="login">เข้าสู่ระบบ</button>
