@@ -1,118 +1,105 @@
 <?php
 require_once "./components/navbar.php";
 require_once "./components/sidebar.php";
-require_once "./Controllers/Leave_inster.php";
+require_once "./Controllers/insertLeaves.php";
+require_once "./Controllers/dateThai.php";
 
 ?>
-
-<div class="content">
-    <h2 class="d-flex justify-content-center my-3">บันทึกการลา</h2>
-    <div>
-      <div class="container d-flex justify-content-center align-content-center">
-        <form method="post">
-          <div class="card text-bg-secondary mb-3" style="width: 1000px;">
-            <div class="card-body">
-
-              <!-- แถวแรก -->
-              <div class="row mt-3">
-
-                <div class="col-md-3">
-                  <div class="form-group">
-                    <label for="">วันที่เริ่มลา</label>
-                    <input type="date" name="startleave" class="form-control">
+<div class="content mt-5">
+  <h2 class="d-flex justify-content-center my-3">บันทึกการลา</h2>
+  <div>
+    <div class=" container ">
+      <div class=" w-100 justify-content-center ">
+        <div class=" card shadow bg-200 mt-5 ">
+          <div class=" card-body text-secondary" style="background-color: #F4F4F4;">
+            <form method="post" id="formPost">
+              <div class="row row-cols-2 gx-3">
+                <div class="col">
+                  <div class=" row row-cols-2 ">
+                    <div class=" col">
+                      <label class=" form-label">วันที่ลา</label>
+                      <input type="date" name="startleave" id="startdate" class=" form-control" value="<?php echo currentdate(); ?>">
+                    </div>
+                    <div class=" col">
+                      <label class=" form-label">ถึงวันที่</label>
+                      <input type="date" name="endleave" id="enddate" class=" form-control" value="<?php echo currentdate(); ?>">
+                    </div>
                   </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="form-group">
-                    <label for="">ถึงวันที่</label>
-                    <input type="date" name="endleave" class="form-control">
+                  <div class=" mt-3">
+                    <label>เหตุผลการลา</label>
+                    <textarea name="comment" id="comment" class=" form-control w-100" style="height: 130px;" placeholder="กรอกเหตุผลการลาเช่น ไม่สบาย, ทำธุระต่างจังหวัด"></textarea>
                   </div>
-                </div>
-                <div class="col-md-3">
-                  <div class=" form-group">
-                    <label for="">ตั้งแต่เวลา</label>
-                    <select name="start_time" id="start_time" class=" form-control">
-                      <option value="08:00">08:00</option>
-                      <option value="09:00">09:00</option>
-                      <option value="10:00">10:00</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class=" form-group">
-                    <label for="">ถึงเวลา</label>
-                    <select name="end_time" id="end_time" class=" form-control">
-                      <option value="12:00">12:00</option>
-                      <option value="13:00">13:00</option>
-                      <option value="14:00">14:00</option>
-                    </select>
-                  </div>
-                </div>
-
-              </div>
-
-              <!-- แถวสอง -->
-              <div class="row mt-3">
-                <div class="col-md-7">
-                  <div class=" form-group">
-                    <label for="">เหตุผลการลา</label>
-                    <textarea name="comment" id="comment" class=" form-control" style="  height: 7rem;width: 29rem;padding: 5px;"></textarea>
-                    <!-- <input type="text" name="comment" class=" form-control"> -->
-                  </div>
-                </div>
-                <div class="col " style="margin-left: 50px;">
-                  <?php
-                  $sql_type = "SELECT * FROM leave_type";
-                  $query_type = mysqli_query($connect, $sql_type);
-                  ?>
-                  <div class=" form-group">
-                    <label for="">ประเภทการลา</label>
-                    <select name="leavetype" id="leavetype" class=" form-control">
+                  <div class="mt-3">
+                    <label>ประเภทการลา</label>
+                    <?php
+                    $sql_type = "SELECT * FROM leave_type";
+                    $query_type = mysqli_query($connect, $sql_type);
+                    ?>
+                    <select name="leavetype" id="leavetype" class=" form-control" required>
                       <option value="" selected disabled>กรุณาเลือกประเภทการลา</option>
                       <?php
                       while ($type_fa = mysqli_fetch_assoc($query_type)) {
                       ?>
-                        <option value="<?php echo $type_fa['leave_type_id'] ?>"><?php echo $type_fa['leave_type_name'] ?></option>
+                        <option value="<?= $type_fa['leave_type_id'] ?>"><?php echo $type_fa['leave_type_name'] ?></option>
                       <?php
                       }
                       ?>
                     </select>
                   </div>
-                </div>
-              </div>
-
-              <!-- แถว3 -->
-              <div class="row mt-3">
-
-                <div class="col-md-7">
-
-                </div>
-                <div class="col " style="margin-left: 50px;">
-                  <div class=" form-group">
-                    <label for="">วิชาที่ลาได้</label>
-                    <input type="text" name="" id="">
-                    <!-- <select name="" id="" class=" form-control"></select> -->
+                  <div class="mt-3">
+                    <label class=" form-label">แนบไฟล์ใบรับรองแพทย์</label>
+                    <input type="file" class=" form-control" name="attachfile" id="attachfile">
+                    <label class=" form-label text-danger mt-2">** หมายเหตุ ในกรณีที่ลาป่วย 3
+                      วันขึ้นไปให้แนบรูปใบรับรองแพทย์ **</label>
                   </div>
                 </div>
-
-              </div>
-
-              <!-- แถวสี่ -->
-              <div class="row mt-3">
-                <div class="col col-md-8">
-                  <p style="margin-top: 0; margin-bottom: 0;">แนบไฟล์ ใบรับรองแพทย์</p>
-                  <input type="file" name="attachfile" id="attachfile">
-                  <p style="margin-top: 10px; margin-bottom: 0;color: red;">** หมายเหตุ กรณีที่ลาป่วยเกิน 3 วันควรมีใบรับรองแพทย์ในการยืนยัน</p>
-                </div>
-
                 <div class="col">
-                  <input type="hidden" name="leaveid" value="<?php echo generateNewProvinceId($connect); ?>">
-                  <button class=" btn bg-success form-control" name="save" id="save" style="width: 200px; height: 50px; margin-left: 99px; margin-top: 55px; color: white;">บันทึกการลา</button>
+                  <div class=" d-flex align-content-end flex-column h-100">
+                    รายวิชาที่สามารถลาได้
+                    <div class=" table-responsive">
+                      <div class="overflow-auto mb-5" id="subject" style="height: 20rem;;">
+
+                      </div>
+                    </div>
+                    <div class=" mt-auto w-100 d-flex justify-content-end">
+                    <input type="hidden" name="leaveid" id="leaveid" value="<?php echo generateNewProvinceId($connect); ?>">
+                      <button class=" btn btn-success px-5" name="submit" onclick="subForm()">ยืนยัน</button>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </form>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   </div>
+  <?
+  function generateNewProvinceId($conn)
+  {
+    $increment = 1;
+
+    $sql_max_id = "SELECT MAX(leave_id) AS max_id FROM leaves";
+    $result = mysqli_query($conn, $sql_max_id);
+    $row = mysqli_fetch_assoc($result);
+    $lastLeaveId = $row['max_id'];
+
+    if ($lastLeaveId !== null) {
+      $numberPart = (int)substr($lastLeaveId, 1);
+      $newNumberPart = $numberPart + $increment;
+
+      $newLeaveId = "L" . str_pad($newNumberPart, 3, '0', STR_PAD_LEFT);
+    }
+    return $newLeaveId;
+  }
+
+  ?>
+
+
+
+  <?php
+include "./Controllers/scrip.php";
+?>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <Script src="https://code.jquery.com/jquery-3.7.1.min.js"></Script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
