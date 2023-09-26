@@ -98,7 +98,7 @@
 
         $.ajax({
             type: "post",
-            url: "./Controllers/ajax.php",
+            url: "ajax.php",
             data: {
                 startdate_id: id_startdate, // แก้ชื่อตัวแปรให้เป็น startdate_id
                 enddate_id: id_enddate,

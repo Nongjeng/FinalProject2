@@ -18,6 +18,7 @@ if ($result) {
     $Provinces_ID = $row["provinces_id"];
     $District_ID = $row["district_id"];
     $Subdistrict_ID = $row["subdistrict_id"];
+    $_SESSION["Group_ID"] = $Group_ID;
 
     $sql_Prefix = "SELECT * FROM prefix WHERE Prefix_ID ='$Prefix_ID'";
     $result_prefix = mysqli_query($connect, $sql_Prefix);

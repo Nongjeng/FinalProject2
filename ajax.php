@@ -1,27 +1,27 @@
-<?php 
+<?php
 include "./Controllers/conncet.php";
 include "./Controllers/dateThai.php";
 
 //for user.php and editUser.php
-if (isset($_POST['function']) && $_POST['function'] == 'provinces'){
+if (isset($_POST['function']) && $_POST['function'] == 'provinces') {
     $provinces_id = $_POST['provinces_id'];
     $sql = "SELECT * from district WHERE provinces_id=$provinces_id";
     $query = mysqli_query($connect, $sql);
     echo '<option selected disabled>-กรุณาเลือกตำบล-</option>';
-    foreach($query as $data){
-        echo '<option value="'.$data['district_id'].'">'.$data['d_name_th'].'</option>';
+    foreach ($query as $data) {
+        echo '<option value="' . $data['district_id'] . '">' . $data['d_name_th'] . '</option>';
     }
 }
-if (isset($_POST['function']) && $_POST['function'] == 'districts'){
+if (isset($_POST['function']) && $_POST['function'] == 'districts') {
     $district_id = $_POST['district_id'];
     $sql = "SELECT * from subdistrict WHERE district_id=$district_id";
     $query = mysqli_query($connect, $sql);
     echo '<option selected disabled>-กรุณาเลือกอำเภอ-</option>';
-    foreach($query as $data){
-        echo '<option value="'.$data['subdistrict_id'].'">'.$data['s_name_th'].'</option>';
+    foreach ($query as $data) {
+        echo '<option value="' . $data['subdistrict_id'] . '">' . $data['s_name_th'] . '</option>';
     }
 }
-if (isset($_POST['function']) && $_POST['function'] == 'subdistricts'){
+if (isset($_POST['function']) && $_POST['function'] == 'subdistricts') {
     $subdistrict_id = $_POST['subdistrict_id'];
     $sql = "SELECT * from subdistrict WHERE subdistrict_id=$subdistrict_id";
     $query = mysqli_query($connect, $sql);
@@ -37,20 +37,22 @@ if (isset($_POST['function']) && $_POST['function'] == 'startdate') {
     $Group_id = $studentData['Group_ID'];
     $startdate_id = $_POST['startdate_id'];
 
-    $sql_check_date = "SELECT sc.schedule_id, sc.semester_id, se.start_semester, se.end_semester, sc.group_id from schedules sc
-                       Inner join Semester se on sc.semester_id = se.semester_id
-                       Inner join Groups g on sc.group_id = g.group_id
-                       WHERE g.group_id = '$Group_id'";
+    $sql_check_date = "SELECT sc.schedule_id, sc.Semester_ID, se.Start_semester, se.End_semester, sc.Group_ID from schedules sc
+                       Inner join semester se on sc.Semester_ID = se.Semester_ID
+                       Inner join groups g on sc.Group_ID = g.Group_ID
+                       WHERE g.Group_ID = '$Group_id'";
 
     $query_check_date = mysqli_query($connect, $sql_check_date);
     $fa_check_date = mysqli_fetch_assoc($query_check_date);
 
     $schedule_id = $fa_check_date['schedule_id'];
-    $start_semester = $fa_check_date['start_semester'];
-    $end_semester = $fa_check_date['end_semester'];
+    $start_semester = $fa_check_date['Start_semester'];
+    $end_semester = $fa_check_date['End_semester'];
 
     if ($startdate_id < $start_semester or $startdate_id > $end_semester) {
         echo "กรุณากรอกวันที่ภายในเทอมที่เรียนเท่านั้น";
+        echo "<br>";
+        echo "ลาได้ตั้งแต่", $start_semester, "ถึง", $end_semester;
     } else {
         // Convert the selected date to Thai day of the week using your existing function
         $thaiDateString = date("d-M-Y", strtotime($startdate_id));
@@ -97,7 +99,6 @@ if (isset($_POST['function']) && $_POST['function'] == 'startdate') {
         }
     }
 }
-
 if (isset($_POST['function']) && $_POST['function'] == 'enddate') {
     $studentDataJSON = $_POST['studentData'];
     $studentData = json_decode($studentDataJSON, true);
@@ -107,17 +108,18 @@ if (isset($_POST['function']) && $_POST['function'] == 'enddate') {
     $startdate_id = $_POST['startdate_id'];
     $enddate_id = $_POST['enddate_id'];
 
-    $sql_check_date = "SELECT sc.schedule_id, sc.semester_id, se.start_semester, se.end_semester, sc.group_id from schedules sc
-    Inner join Semester se on sc.semester_id = se.semester_id
-    Inner join Groups g on sc.group_id = g.group_id
-    WHERE g.group_id = '$Group_id'";
+    $sql_check_date = "SELECT sc.schedule_id, sc.Semester_ID, se.Start_semester, se.End_semester, sc.Group_ID from schedules sc
+                       Inner join semester se on sc.Semester_ID = se.Semester_ID
+                       Inner join groups g on sc.Group_ID = g.Group_ID
+                       WHERE g.Group_ID = '$Group_id'";
+
 
     $query_check_date = mysqli_query($connect, $sql_check_date);
     $fa_check_date = mysqli_fetch_assoc($query_check_date);
 
     $schedule_id = $fa_check_date['schedule_id'];
-    $start_semester = $fa_check_date['start_semester'];
-    $end_semester = $fa_check_date['end_semester'];
+    $start_semester = $fa_check_date['Start_semester'];
+    $end_semester = $fa_check_date['End_semester'];
 
     if ($startdate_id < $start_semester or $enddate_id < $start_semester or $startdate_id > $end_semester or $enddate_id > $end_semester) {
         echo "กรุณากรอกวันที่ภายในเทอมที่เรียนเท่านั้น";
@@ -142,7 +144,7 @@ if (isset($_POST['function']) && $_POST['function'] == 'enddate') {
             if (mysqli_num_rows($testquery) > 0) {
                 // Generate the HTML for the schedule table
                 echo $thaiDayOfWeek . ' ที่ ' . $thaiDateString;
-                echo '<table>
+                echo '<table class"table">
                 <thead>
                     <td class=" fw-medium">รหัสวิชา</td>
                     <td class=" fw-medium">ชื่อวิชา</td>
@@ -168,5 +170,3 @@ if (isset($_POST['function']) && $_POST['function'] == 'enddate') {
         }
     }
 }
-
-?>
