@@ -2,8 +2,7 @@
 include "./components/navbarAdmin.php";
 include "./components/sidebarAdmin.php";
 ?>
-<div class="content">
-    
+<div class="content mt-5">
     <table class="table" id="group_list">
         <thead>
             <tr>
