@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) {
             confirmButtonText: 'OK'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = 'LeaveHistory.php';
+                window.location.href = '?page=LeaveHistory';
             }
         });";
             echo "</script>";

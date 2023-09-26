@@ -66,7 +66,7 @@ require_once "./Controllers/dateThai.php";
                     </div>
                     <div class=" mt-auto w-100 d-flex justify-content-end">
                       <input type="hidden" name="leaveid" id="leaveid" value="<?php echo generateNewProvinceId($connect); ?>">
-                      <input type="hidden" name="writedate" id="writedate" value="<?php echo currentdate(); ?>">
+                      <input type="hidden" name="writedate" id="writedate" value="<?php echo currentdateTime(); ?>">
                       <button class=" btn btn-success px-5" type="submit" name="submit">ยืนยัน</button>
                     </div>
                   </div>

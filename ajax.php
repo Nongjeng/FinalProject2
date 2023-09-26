@@ -37,21 +37,22 @@ if (isset($_POST['function']) && $_POST['function'] == 'startdate') {
     $Group_id = $studentData['Group_ID'];
     $startdate_id = $_POST['startdate_id'];
 
-    $sql_check_date = "SELECT sc.schedule_id, sc.semester_id, se.start_semester, se.end_semester, sc.group_id from schedules sc
-                       Inner join Semester se on sc.semester_id = se.semester_id
-                       Inner join Groups g on sc.group_id = g.group_id
-                       WHERE g.group_id = '$Group_id'";
+    $sql_check_date = "SELECT sc.schedule_id, sc.Semester_ID, se.Start_semester, se.End_semester, sc.group_id from schedules sc
+                       Inner join semester se on sc.Semester_ID = se.Semester_ID
+                       Inner join groups g on sc.Group_ID = g.Group_ID
+                       WHERE g.Group_ID = '$Group_id'";
 
     $query_check_date = mysqli_query($connect, $sql_check_date);
     $fa_check_date = mysqli_fetch_assoc($query_check_date);
 
     $schedule_id = $fa_check_date['schedule_id'];
-    $start_semester = $fa_check_date['start_semester'];
-    $end_semester = $fa_check_date['end_semester'];
+    $start_semester = $fa_check_date['Start_semester'];
+    $end_semester = $fa_check_date['End_semester'];
 
     if ($startdate_id < $start_semester or $startdate_id > $end_semester) {
-        echo $sql_check_date ;
         echo "กรุณากรอกวันที่ภายในเทอมที่เรียนเท่านั้น";
+        echo "<br>";
+        echo "เริ่มลาได้ตั้งแต่",$start_semester,"ถึง",$end_semester;
     } else {
         // Convert the selected date to Thai day of the week using your existing function
         $thaiDateString = date("d-M-Y", strtotime($startdate_id));
@@ -111,17 +112,17 @@ if (isset($_POST['function']) && $_POST['function'] == 'enddate') {
     $startdate_id = $_POST['startdate_id'];
     $enddate_id = $_POST['enddate_id'];
 
-    $sql_check_date = "SELECT sc.schedule_id, sc.semester_id, se.start_semester, se.end_semester, sc.group_id from schedules sc
-    Inner join Semester se on sc.semester_id = se.semester_id
-    Inner join Groups g on sc.group_id = g.group_id
-    WHERE g.group_id = '$Group_id'";
+    $sql_check_date = "SELECT sc.schedule_id, sc.Semester_ID, se.Start_semester, se.End_semester, sc.group_id from schedules sc
+    Inner join semester se on sc.Semester_ID = se.Semester_ID
+    Inner join groups g on sc.Group_ID = g.Group_ID
+    WHERE g.Group_ID = '$Group_id'";
 
     $query_check_date = mysqli_query($connect, $sql_check_date);
     $fa_check_date = mysqli_fetch_assoc($query_check_date);
 
     $schedule_id = $fa_check_date['schedule_id'];
-    $start_semester = $fa_check_date['start_semester'];
-    $end_semester = $fa_check_date['end_semester'];
+    $start_semester = $fa_check_date['Start_semester'];
+    $end_semester = $fa_check_date['End_semester'];
 
     if ($startdate_id < $start_semester or $enddate_id < $start_semester or $startdate_id > $end_semester or $enddate_id > $end_semester) {
         echo "กรุณากรอกวันที่ภายในเทอมที่เรียนเท่านั้น";

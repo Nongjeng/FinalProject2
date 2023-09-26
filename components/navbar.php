@@ -24,7 +24,7 @@ include "./Controllers/selectUser.php"
                     <a href="?page=User" class="text-white no-underline"><i class="bi bi-person-circle fs-4"></i>&nbsp;&nbsp;<?php echo "$Prefix_Name"; ?>&nbsp;&nbsp;<?php echo "$STD_Name  $STD_Lastname"; ?></a>
                 </li>
                 <li class="nav-item" id="nav-item">
-                    <a href="?page=logout" title="ออกจากระบบ" class="text-white no-underline" data-bs-toggle="tooltip"> <i class="bi bi-box-arrow-right fs-4"></i></a>
+                    <a href="?page=log_out" title="ออกจากระบบ" class="text-white no-underline" data-bs-toggle="tooltip"> <i class="bi bi-box-arrow-right fs-4"></i></a>
                 </li>
             </ul>
         </div>

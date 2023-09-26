@@ -4,6 +4,11 @@ function currentdate()
     $currentDate = date("Y-m-d");
     return $currentDate;
 }
+function currentdateTime()
+{
+    $currentdateTime = date("Y-m-d H:i:s");
+    return $currentdateTime;
+}
 
 function countDays($start, $end)
 {
