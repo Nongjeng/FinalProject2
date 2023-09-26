@@ -46,7 +46,7 @@ include_once "./Controllers/EditUser.php";
                         <label for="birthdate">วันเดือนปีเกิด :</label>
                         <input type="text" class="form-control" id="birthdate" name="birthdate" value="<?php echo "$STD_Birth"; ?>">
                     </div>
-                    <div class="form-group d-flex">
+                    <div class="form-group d-flex mt-3">
                         <label for="address" class=" text-nowrap">ที่อยู่ :</label>
                         <input type="text" class="form-control form mx-2" id="address" name="address" style="width: 250px;" value="<?php echo "$STD_Address"; ?>">
 
@@ -88,17 +88,17 @@ include_once "./Controllers/EditUser.php";
                         <label for="parent-name">ชื่อผู้ปกครอง :</label>
                         <input type="text" class="form-control" id="parent-name" name="parent-name" value="<?php echo "$Parent_Name"; ?>">
                     </div>
-                    <div class="form-group d-flex">
+                    <div class="form-group d-flex mt-3">
                         <label for="district" class=" text-nowrap">ตำบล :</label>
                         <select name="districts" id="districts" class=" form-control" style="margin-left: 13px;">
-                            <option value="<?php echo $fetch_all['district_id']; ?>" selected ><?php echo $fetch_all['d_name_th']; ?></option>
+                            <option value="<?php echo $fetch_all['district_id']; ?>" selected><?php echo $fetch_all['d_name_th']; ?></option>
                             <?php foreach ($sql_district_q as $data2) { ?>
                                 <option value="<?= $data2['district_id'] ?>"><?= $data2['d_name_th'] ?></option>
                             <?php } ?>
                         </select>
                         <label for="subdistrict" class=" text-nowrap" style="margin-left: 8px;">อำเภอ :</label>
                         <select name="subdistricts" id="subdistricts" class=" form-control" style="margin-left: 13px;">
-                            <option value="<?php echo $fetch_all['subdistrict_id']; ?>" selected ><?php echo $fetch_all['s_name_th']; ?></option>
+                            <option value="<?php echo $fetch_all['subdistrict_id']; ?>" selected><?php echo $fetch_all['s_name_th']; ?></option>
                             <?php foreach ($sql_subdistrict_q as $data3) { ?>
                                 <option value="<?= $data3['subdistrict_id'] ?>"><?= $data3['s_name_th'] ?></option>
                             <?php } ?>
@@ -109,7 +109,7 @@ include_once "./Controllers/EditUser.php";
 
             <div class="row">
                 <div class="col-4">
-                    <div class="form-group d-flex">
+                    <div class="form-group d-flex mt-3">
                         <label for="subdistrict" class=" text-nowrap">รหัสไปรษณีย์ :</label>
                         <input type="text" class="form-control form mx-2" name="zipcode" id="zipcode" style="width: 175px;" value="<?php echo $fetch_all['zip_code'] ?>">
                     </div>
