@@ -3,80 +3,8 @@ body {
     padding-top: 80px;
 }
 
-.title {
-    width: 293px;
-    height: 65px;
-    position: absolute;
-    color: white;
-    font-size: 25px;
-    font-family: 'Anakotmai', sans-serif;
-    font-weight: 700;
-    word-wrap: break-word;
-}
-
-.divider {
-    width: 263px;
-    height: 0px;
-    position: absolute;
-    border: 1px white solid;
-}
-
-.divider2 {
-    width: 50px;
-    height: 0px;
-    position: absolute;
-    border: 1px white solid;
-}
-
-.form-box {
-    width: 918px;
-    height: 512px;
-    position: absolute;
-    background: #F4F4F4;
-    border-radius: 35px;
-}
-
-.file-input {
-    width: 300px;
-    height: 30px;
-    position: absolute;
-    color: #9F9F9F;
-    font-size: 20px;
-    font-family: 'Anakotmai', sans-serif;
-    font-weight: 400;
-    word-wrap: break-word;
-}
-
-.file {
-    width: 300px;
-    height: 30px;
-    position: absolute;
-}
-
-.submit-button {
-    width: 150px;
-    height: 50px;
-    position: absolute;
-    background: #00FF0A;
-    border-radius: 20px;
-    color: white;
-    font-size: 20px;
-    font-family: 'Anakotmai', sans-serif;
-    font-weight: 400;
-    word-wrap: break-word;
-}
-
 .no-underline {
     text-decoration: none;
-}
-
-.textlabel {
-    position: absolute;
-    color: #9F9F9F;
-    font-size: 20px;
-    font-family: 'Anakotmai', sans-serif;
-    font-weight: 400;
-    word-wrap: break-word
 }
 
 .content {
@@ -110,40 +38,6 @@ body {
     /* ขนาดของไอคอน */
     color: white;
     /* สีของไอคอน */
-}
-
-
-/* สไตล์ลิงก์ */
-
-.link-button {
-    /* ข้อความอยู่ตรงกลางแนวตั้งและแนวนอน */
-    display: flex;
-    justify-content: center;
-    /* จัดให้ข้อความอยู่ตรงกลางแนวนอน */
-    align-items: center;
-    /* จัดให้ข้อความอยู่ตรงกลางแนวตั้ง */
-    /* คำสั่งอื่น ๆ สามารถใช้ต่อจากนี้ได้ */
-    cursor: pointer;
-    width: 200px;
-    height: 72px;
-    background: white;
-    border: 1px solid black;
-    border-radius: 15px;
-    color: black;
-    font-size: 20px;
-    font-family: 'Anakotmai', sans-serif;
-    font-weight: 400;
-    word-wrap: break-word;
-    text-decoration: none;
-    /* ลบขีดเส้นใต้ลิงก์ */
-}
-
-
-/* สไตล์ลิงก์เมื่อนำเมาส์ไปวาง */
-
-.link-button:hover {
-    background: lightgray;
-    /* เปลี่ยนพื้นหลังเมื่อเมาส์วาง */
 }
 
 #nav-item {

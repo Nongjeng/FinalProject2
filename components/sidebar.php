@@ -6,13 +6,3 @@
         <a href="?page=schedule" title="คู่มือการใช้งาน" class="text-white no-underline" data-bs-toggle="tooltip"> <i class="bi bi-book custom-icon"></i></a>
     </div>
 </div>
-
-<script>
-    (function() {
-        'use strict'
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-        tooltipTriggerList.forEach(function(tooltipTriggerEl) {
-            new bootstrap.Tooltip(tooltipTriggerEl)
-        })
-    })()
-</script>

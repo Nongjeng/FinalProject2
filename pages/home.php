@@ -5,12 +5,12 @@ require_once "./Controllers/insertLeaves.php";
 require_once "./Controllers/dateThai.php";
 
 ?>
-<div class="content mt-5">
-  <h2 class="d-flex justify-content-center my-3">บันทึกการลา</h2>
+<div class="content mt-2 mb-2">
+  <h2 class="d-flex justify-content-center mt-2">บันทึกการลา</h2>
   <div>
     <div class=" container ">
       <div class=" w-100 justify-content-center ">
-        <div class=" card shadow bg-200 mt-5 ">
+        <div class=" card shadow bg-200 mt-3 ">
           <div class=" card-body text-secondary" style="background-color: #F4F4F4;">
             <form method="post" id="formPost">
               <div class="row row-cols-2 gx-3">
