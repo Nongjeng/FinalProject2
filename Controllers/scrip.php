@@ -4,7 +4,10 @@
         $.ajax({
             type: "post",
             url: "ajax.php",
-            data: {provinces_id:id_province,function:'provinces'},
+            data: {
+                provinces_id: id_province,
+                function: 'provinces'
+            },
             success: function(data) {
                 $('#districts').html(data)
                 $('#subdistricts').html('')
@@ -17,7 +20,10 @@
         $.ajax({
             type: "post",
             url: "ajax.php",
-            data: {district_id:id_district,function:'districts'},
+            data: {
+                district_id: id_district,
+                function: 'districts'
+            },
             success: function(data) {
                 $('#subdistricts').html(data)
                 $('#zipcode').val('')
@@ -29,7 +35,10 @@
         $.ajax({
             type: "post",
             url: "ajax.php",
-            data: {subdistrict_id:id_subdistrict,function:'subdistricts'},
+            data: {
+                subdistrict_id: id_subdistrict,
+                function: 'subdistricts'
+            },
             success: function(data) {
                 $('#zipcode').val(data)
             }
@@ -67,6 +76,7 @@
                 function: 'startdate'
             },
             success: function(data) {
+                console.log(studentDataJSON);
                 $('#subject').html(data)
                 $('#enddate').val(id_startdate)
             }
@@ -111,4 +121,44 @@
         });
     });
 
+    function confirmCancellation(leave_id) {
+    Swal.fire({
+        title: 'ต้องการยกเลิกการลา?',
+        text: 'คุณแน่ใจหรือไม่ว่าต้องการยกเลิกการลานี้?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'ตกลง',
+        cancelButtonText: 'ยกเลิก'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // ส่วนของ PHP ที่ใช้ในการอัปเดตฐานข้อมูล
+            var leave_id = $('#leave_id').val();
+            $.ajax({
+                type: 'POST',
+                url: 'ajax.php', // ระบุ URL ที่จะทำการอัปเดตในไฟล์นี้
+                data: { leave_id: leave_id },
+                success: function(response) {
+                    if (response === 'success') {
+                        Swal.fire({
+                            title: 'ยกเลิกสำเร็จ',
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload();
+                            }
+                        });
+                    } else {
+                        Swal.fire({
+                            title: 'เกิดข้อผิดพลาด',
+                            text: 'ไม่สามารถยกเลิกการลาได้',
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                }
+            });
+        }
+    });
+}
 </script>
