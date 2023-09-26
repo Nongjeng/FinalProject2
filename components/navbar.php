@@ -2,8 +2,8 @@
 include_once "./components/BSCss.html";
 include "./Controllers/selectUser.php"
 ?>
-
 <nav class="navbar navbar-expand-lg navbar-light  fixed-top" style=" background: #BA0900;">
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>

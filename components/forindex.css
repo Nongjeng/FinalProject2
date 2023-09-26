@@ -1,7 +1,6 @@
 body {
     background: rgb(255, 255, 255);
     padding-top: 80px;
-    /* ปรับค่าตามความสูงของ Navbar */
 }
 
 .title {
@@ -35,13 +34,6 @@ body {
     position: absolute;
     background: #F4F4F4;
     border-radius: 35px;
-}
-
-textarea {
-    width: 497px;
-    height: 183px;
-    position: absolute;
-    resize: none;
 }
 
 .file-input {
@@ -87,82 +79,6 @@ textarea {
     word-wrap: break-word
 }
 
-
-/* สไตล์สำหรับป็อปอัพท์ */
-
-.calendar-popup {
-    display: none;
-    position: absolute;
-    background-color: white;
-    border: 1px solid #ccc;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.calendar-popup h2 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-}
-
-.calendar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.calendar-day {
-    width: 14.28%;
-    /* 1/7 ของ 100% */
-    text-align: center;
-    padding: 10px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-}
-
-.calendar-day:hover {
-    background-color: #ffffff;
-}
-
-.calendar-day:nth-child(7n),
-.calendar-day:last-child {
-    border-right: none;
-}
-
-.calendar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.selected-day {
-    background-color: #007BFF;
-    color: white;
-}
-
-#openPopupButton1,
-#openPopupButton2 {
-    cursor: pointer;
-    width: 200px;
-    height: 72px;
-    position: absolute;
-    background: white;
-    border: 1px solid black;
-    border-radius: 15px;
-    color: black;
-    font-size: 20px;
-    font-family: 'Anakotmai', sans-serif;
-    font-weight: 400;
-    word-wrap: break-word
-}
-
-#openPopupButton1:hover,
-#openPopupButton2:hover {
-    background-color: #00000018;
-}
-
-
-/* Define styles for the main content area */
-
 .content {
     margin-left: 0;
     /* No margin on the left to start */
@@ -177,20 +93,20 @@ textarea {
 }
 
 .fas.fa-history {
-    font-size: 50px;
+    font-size: 20px;
     color: white;
     /* ปรับสีไอคอน */
 }
 
 .icon-calendar {
-    font-size: 50px;
+    font-size: 20px;
     /* ปรับขนาดไอคอนตามต้องการ */
     color: white;
     /* เปลี่ยนสีไอคอนตามต้องการ */
 }
 
 .custom-icon {
-    font-size: 50px;
+    font-size: 20px;
     /* ขนาดของไอคอน */
     color: white;
     /* สีของไอคอน */
@@ -233,9 +149,3 @@ textarea {
 #nav-item {
     margin-right: 50px;
 }
-
-
-/* #navbar5 {
-    background: #454ABB;
-    position: fixed;
-} */
