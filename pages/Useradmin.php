@@ -2,47 +2,67 @@
 include "./components/navbarAdmin.php";
 include "./components/sidebarAdmin.php";
 ?>
-<div class="content mt-5">
-    <table class="table" id="group_list">
-        <thead>
-            <tr>
-                <th>รหัสกลุ่ม</th>
-                <th>สาขา</th>
-                <th>กลุ่ม</th>
-                <th>ชื่ออาจารย์</th>
-                <th>แก้ไข</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            $sql_list_group = "SELECT g.Group_ID, g.Major_ID, g.Group_Name, g.Teacher_ID, t.Teacher_Name, t.Teacher_Lastname
-           FROM `groups` AS g
-           INNER JOIN `teacher` AS t ON g.Teacher_ID = t.Teacher_ID";
+<div class="content">
+    <div class="card-body">
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-center">ข้อมูลส่วนตัว</h1>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <h5 style="font-weight: bold;">ข้อมูลครู</h5>
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="teacher-id">รหัสครู :</label>
+                        <input type="text" class="form-control" id="teacher-id" value="<?php echo $Teacher_ID; ?>" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="prefix">คำนำหน้าชื่อ :</label>
+                        <input type="text" class="form-control" id="prefix" value="<?php echo $Prefix_ID; ?>" disabled>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="teacher-name">ชื่อ :</label>
+                        <input type="text" class="form-control" id="teacher-name" value="<?php echo $Teacher_Name; ?>" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="teacher-lastname">นามสกุล :</label>
+                        <input type="text" class="form-control" id="teacher-lastname" value="<?php echo $Teacher_Lastname; ?>" disabled>
+                    </div>
+                </div>
+            </div>
 
-            $sql_list_group_q = mysqli_query($connect, $sql_list_group);
+            <!-- ส่วนของที่อยู่ -->
+            <div class="row mt-3">
+                <h5 style="font-weight: bold;">ที่อยู่</h5>
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="teacher-address">ที่อยู่ :</label>
+                        <textarea class="form-control" id="teacher-address" rows="4" disabled><?php echo $Teacher_Address; ?></textarea>
+                    </div>
+                </div>
+            </div>
 
-            while ($data = mysqli_fetch_assoc($sql_list_group_q)) { ?>
-                <tr>
-                    <td><?php echo $data['Group_ID'] ?></td>
-                    <td><?php echo $data['Major_ID'] ?></td>
-                    <td><?php echo $data['Group_Name'] ?></td>
-                    <td><?php echo $data['Teacher_Lastname']," ",$data['Teacher_Lastname'] ?></td>
-                    <td><button>แก้ไข</button></td>
-                </tr>
-            <?php  } ?>
-        </tbody>
-    </table>
+            <!-- ส่วนของตำแหน่ง -->
+            <div class="row mt-3">
+                <h5 style="font-weight: bold;">ตำแหน่ง</h5>
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="position">ตำแหน่ง :</label>
+                        <input type="text" class="form-control" id="position" value="<?php echo $Position_ID; ?>" disabled>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ปุ่มกลับหน้าหลัก -->
+            <div class="row mt-3">
+                <div class="col-12 text-center">
+                    <button class="btn btn-success mr-3" onclick="window.location.href = '?page=EditUser';">แก้ไขข้อมูล</button>
+                    <button class="btn btn-danger" onclick="window.location.href = '?page=homeadmin';">กลับหน้าหลัก</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<script>
-    $(document).ready(function() {
-        $('#group_list').DataTable({
-            pageLength: 10,
-            paging: true,
-            ordering: true,
-            info: true,
-            responsive: {
-                orthogonal: 'responsive'
-            }
-        });
-    });
-</script>

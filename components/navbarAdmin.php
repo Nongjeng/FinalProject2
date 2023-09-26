@@ -22,10 +22,10 @@ include "./Controllers/selectAdmin.php"
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-2"></ul>
             <ul class="navbar-nav mt-1">
                 <li class="nav-item" id="nav-item">
-                <a href="?page=User" class="text-white no-underline"><i class="bi bi-person-circle fs-5"></i>&nbsp;&nbsp;<?php echo "$Prefix_Name"; ?>&nbsp;&nbsp;<?php echo "$Teacher_Name  $Teacher_Lastname"; ?></a>
+                <a href="?page=Useradmin" class="text-white no-underline"><i class="bi bi-person-circle fs-5"></i>&nbsp;&nbsp;<?php echo "$Prefix_Name"; ?>&nbsp;&nbsp;<?php echo "$Teacher_Name  $Teacher_Lastname"; ?></a>
                 </li>
                 <li class="nav-item" id="nav-item">
-                    <a href="?page=logout" title="ออกจากระบบ" class="text-white no-underline" data-bs-toggle="tooltip"> <i class="bi bi-box-arrow-right fs-4"></i></a>
+                    <a href="?page=log_outAD" title="ออกจากระบบ" class="text-white no-underline" data-bs-toggle="tooltip"> <i class="bi bi-box-arrow-right fs-4"></i></a>
                 </li>
             </ul>
         </div>

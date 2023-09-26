@@ -8,6 +8,9 @@ if ($result) {
     $Prefix_ID = $row['Prefix_ID'];
     $Teacher_Name = $row["Teacher_Name"];
     $Teacher_Lastname = $row["Teacher_Lastname"];
+    $Teacher_Address = $row["Teacher_Address"];
+    $Position_ID = $row["Position_ID"];
+
 
 
     $sql_Prefix = "SELECT * FROM prefix WHERE Prefix_ID ='$Prefix_ID'";
