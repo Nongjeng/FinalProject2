@@ -29,9 +29,10 @@ $result = mysqli_query($connect, $query);
 ?>
 
 <div class="content">
-    <H3 class="mt-5" style="margin-left: 18rem;">ประวัติการลา</H3>
-
     <div class="container">
+        <div class="text-start">
+            <H3 class="mt-5">ประวัติการลา</H3>
+        </div>
         <table class="table table-striped m-0" id="leaveHis">
             <thead>
                 <tr class="align-middle text-center text-white" style="height: 50px">
@@ -153,10 +154,6 @@ $result = mysqli_query($connect, $query);
                                                             <label for="">เหตุผลการลา :</label>
                                                             <textarea name="" id="" class=" form-control w-100" disabled><?php echo $row['leave_comment'] ?></textarea>
                                                         </div>
-                                                        <div class="mt-3">
-                                                            <label for="" class=" form-label">รูปภาพที่แนบ :</label>
-                                                            <input type="file" class=" form-control" disabled>
-                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col">
@@ -181,7 +178,6 @@ $result = mysqli_query($connect, $query);
                                                                                 <td class=" fw-medium">ชื่อวิชา</td>
                                                                                 <td class=" fw-medium">เวลา</td>
                                                                                 <td class=" fw-medium">ครูผู้สอน</td>
-                                                                                <td class=" fw-medium text-center">สถานะ</td>
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
@@ -213,23 +209,6 @@ $result = mysqli_query($connect, $query);
                                                                                     <td><?= $f_lDetail['Subject_Name'] ?></td>
                                                                                     <td><?= $f_lDetail['SB_time'] ?></td>
                                                                                     <td><?php echo $f_lDetail['Teacher_Name'] . " " . $f_lDetail['Teacher_Lastname'] ?></td>
-                                                                                    <?php
-                                                                                    if ($f_lDetail['admit'] == 0) {
-                                                                                    ?>
-
-                                                                                        <td>
-                                                                                            <div class=" rounded-3 bg-warning text-white d-flex align-items-center justify-content-center" style="height: 1.5rem;">
-                                                                                                <label for="">รออนุมัติ</label>
-                                                                                            </div>
-                                                                                        </td>
-
-                                                                                    <?php } else { ?>
-                                                                                        <td>
-                                                                                            <div class=" rounded-3 bg-success text-white d-flex align-items-center justify-content-center" style="height: 1.5rem;">
-                                                                                                <label for="">รออนุมัติ</label>
-                                                                                            </div>
-                                                                                        </td>
-                                                                                    <?php } ?>
                                                                                 </tr>
                                                                             <?php } ?>
                                                                         </tbody>
@@ -246,7 +225,7 @@ $result = mysqli_query($connect, $query);
                                                 <button type="button" class="btn btn-dark">พิมพ์เอกสาร</button>
                                                 <?php if ($row['leave_status_id'] != 'LS02') { ?>
                                                     <div>
-                                                        <button type="button" class="btn btn-danger" onclick="confirmCancellation()">ยกเลิกการลา</button>
+                                                        <button type="button" class="btn btn-danger" onclick="confirmCancellation('<?php echo $row['leave_id'] ?>')">ยกเลิกการลา</button>
                                                     </div>
                                                 <?php } ?>
                                             </div>
@@ -264,7 +243,7 @@ $result = mysqli_query($connect, $query);
 
 <?php include "./Controllers/scrip.php"; ?>
 <script>
-      $(document).ready(function() {
+    $(document).ready(function() {
         $('#leaveHis').DataTable({
             pageLength: 5,
             paging: true,

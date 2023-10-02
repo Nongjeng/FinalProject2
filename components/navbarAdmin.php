@@ -11,9 +11,9 @@ include "./Controllers/selectAdmin.php"
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mx-2">
             <li class="nav-item ml-1">
-                <img src="./public/img/TATC_Logo.png" width="20" class="rounded-circle border-10px">
+                <img src="./public/img/TATC_Logo.png" width="70" class="rounded-circle border-10px">
             </li>
-            <li class="nav-item mt-2 ml">
+            <li class="nav-item d-flex align-items-center ml">
                 <a class="nav-link text-white" href="?page=homeadmin">วิทยาลัยเทคนิคสัตหีบ</a>
             </li>
         </ul>

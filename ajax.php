@@ -52,7 +52,7 @@ if (isset($_POST['function']) && $_POST['function'] == 'startdate') {
     if ($startdate_id < $start_semester or $startdate_id > $end_semester) {
         echo "กรุณากรอกวันที่ภายในเทอมที่เรียนเท่านั้น";
         echo "<br>";
-        echo "เริ่มลาได้ตั้งแต่",$start_semester,"ถึง",$end_semester;
+        echo "เริ่มลาได้ตั้งแต่ ",$SemesterDate = date("d-M-Y",strtotime($start_semester))," ถึง ",$ESemesterDate = date("d-M-Y",strtotime($end_semester));
     } else {
         // Convert the selected date to Thai day of the week using your existing function
         $thaiDateString = date("d-M-Y", strtotime($startdate_id));
@@ -126,6 +126,8 @@ if (isset($_POST['function']) && $_POST['function'] == 'enddate') {
 
     if ($startdate_id < $start_semester or $enddate_id < $start_semester or $startdate_id > $end_semester or $enddate_id > $end_semester) {
         echo "กรุณากรอกวันที่ภายในเทอมที่เรียนเท่านั้น";
+        echo "<br>";
+        echo "เริ่มลาได้ตั้งแต่ ",$SemesterDate = date("d-M-Y",strtotime($start_semester))," ถึง ",$ESemesterDate = date("d-M-Y",strtotime($end_semester));
     } else {
         $Starttimestamp = strtotime($startdate_id);
         $thaiDateString = date("d-M-Y", $Starttimestamp);

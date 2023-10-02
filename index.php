@@ -19,6 +19,13 @@ include('./Controllers/conncet.php');
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
+<style>
+  ::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+  }
+</style>
+
 <body>
   <?php
   if (empty($_GET['page']) || !ctype_alnum(str_replace(['-', '_'], '', $_GET['page'])) || !file_exists("./pages/{$_GET['page']}.php")) {

@@ -30,6 +30,32 @@
                             </form>
                         </div>
                     </div>
+                    <div class="card-footer">
+                        <div class="container rounded-3" style="background-color: #7f82be;">
+                            <div class="d-flex justify-content-center mt-3">
+                                <div class="mt-3">
+                                    <label for="" class="fs-5">วิธีการเข้าสู่ระบบ</label>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center mt-3">
+                                <label for="" class="fs-6">สำหรับนักศึกษา</label>
+                            </div>
+                            <div class="d-flex justify-content-center mt-3">
+                                <label for="" class="fs-6">ชื่อผู้ใช้ให้ใส่รหัสนักศึกษาของตนเอง</label>
+                            </div>
+                            <div class="d-flex justify-content-center mt-2">
+                                <label for="" class="fs-6">และรหัสผ่าน 1234 เช่น ชื่อผู้ใช้ 65309010005 รหัสผ่าน 1234</label>
+                            </div>
+                            <div class="d-flex justify-content-center mt-3">
+                                <label for="" class="fs-6">สำหรับครู อาจารย์</label>
+                            </div>
+                            <div class="d-flex justify-content-center mt-2 mb-3">
+                                <div class="mb-3">
+                                    <label for="" class="fs-6">ชื่อผู้ใช้ให้ใส่รหัสผู้ใช้ของตนเองตาม RMS</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

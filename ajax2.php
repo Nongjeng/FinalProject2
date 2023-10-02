@@ -9,6 +9,7 @@ if (isset($_POST['leave_id'])) {
     $update_status = "UPDATE leaves SET leave_status_id = 'LS02' WHERE leave_id = '$leave_id'";
     $query = mysqli_query($connect, $update_status);
 
+    
     if ($query) {
         echo 'success';
     } else {

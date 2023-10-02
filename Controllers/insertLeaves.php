@@ -12,8 +12,10 @@ if (isset($_POST['submit'])) {
     $selected_subject_sb_id = $_POST['selected_subject_sb_id'];
     $selectedDays = $_POST['selectedDays'];
 
+    $cTime = date('h:i:s');
+
     $sql_leave = sprintf("INSERT INTO leaves(leave_id,leave_type_id,std_id,write_date,start_leave_date,end_leave_date,leave_comment,leave_status_id,attach_medCerti)
-                VALUES ('$leaveid','$leavetype','$STD_ID','$writedate','$startleave','$endleave','$comment','LS01','$attachfile')");
+                VALUES ('$leaveid','$leavetype','$STD_ID','$writedate $cTime ','$startleave','$endleave','$comment','LS01','$attachfile')");
 
     if (mysqli_query($connect, $sql_leave)) {
 

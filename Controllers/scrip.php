@@ -122,43 +122,86 @@
     });
 
     function confirmCancellation(leave_id) {
-    Swal.fire({
-        title: 'ต้องการยกเลิกการลา?',
-        text: 'คุณแน่ใจหรือไม่ว่าต้องการยกเลิกการลานี้?',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'ตกลง',
-        cancelButtonText: 'ยกเลิก'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            // ส่วนของ PHP ที่ใช้ในการอัปเดตฐานข้อมูล
-            var leave_id = $('#leave_id').val();
-            $.ajax({
-                type: 'POST',
-                url: 'ajax.php', // ระบุ URL ที่จะทำการอัปเดตในไฟล์นี้
-                data: { leave_id: leave_id },
-                success: function(response) {
-                    if (response === 'success') {
-                        Swal.fire({
-                            title: 'ยกเลิกสำเร็จ',
-                            icon: 'success',
-                            confirmButtonText: 'OK'
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                location.reload();
-                            }
-                        });
-                    } else {
-                        Swal.fire({
-                            title: 'เกิดข้อผิดพลาด',
-                            text: 'ไม่สามารถยกเลิกการลาได้',
-                            icon: 'error',
-                            confirmButtonText: 'OK'
-                        });
+        Swal.fire({
+            title: 'ต้องการยกเลิกการลา?',
+            text: 'คุณแน่ใจหรือไม่ว่าต้องการยกเลิกการลานี้?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'ตกลง',
+            cancelButtonText: 'ยกเลิก'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // ส่วนของ PHP ที่ใช้ในการอัปเดตฐานข้อมูล
+                $.ajax({
+                    type: 'POST',
+                    url: 'ajax.php', // ระบุ URL ที่จะทำการอัปเดตในไฟล์นี้
+                    data: {
+                        leave_id: leave_id
+                    },
+                    success: function(response) {
+                        if (response === 'success') {
+                            Swal.fire({
+                                title: 'ยกเลิกสำเร็จ',
+                                icon: 'success',
+                                confirmButtonText: 'OK'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload();
+                                }
+                            });
+                        } else {
+                            Swal.fire({
+                                title: 'เกิดข้อผิดพลาด',
+                                text: 'ไม่สามารถยกเลิกการลาได้',
+                                icon: 'error',
+                                confirmButtonText: 'OK'
+                            });
+                        }
                     }
-                }
-            });
-        }
-    });
-}
+                });
+            }
+        });
+    }
+
+    function confirmSuccess(leave_id) {
+        Swal.fire({
+            title: 'ต้องการอนุมัติการลา?',
+            text: 'คุณแน่ใจหรือไม่ว่าต้องการอนุมัติการลานี้?',
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonText: 'ตกลง',
+            cancelButtonText: 'ยกเลิก'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // ส่วนของ PHP ที่ใช้ในการอัปเดตฐานข้อมูล
+                $.ajax({
+                    type: 'POST',
+                    url: 'ajax2.php', // ระบุ URL ที่จะทำการอัปเดตในไฟล์นี้
+                    data: {
+                        leave_id: leave_id
+                    },
+                    success: function(response) {
+                        if (response === 'success') {
+                            Swal.fire({
+                                title: 'อนุมัติสำเร็จ',
+                                icon: 'success',
+                                confirmButtonText: 'OK'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload();
+                                }
+                            });
+                        } else {
+                            Swal.fire({
+                                title: 'เกิดข้อผิดพลาด',
+                                text: 'ไม่สามารถยกเลิกการลาได้',
+                                icon: 'error',
+                                confirmButtonText: 'OK'
+                            });
+                        }
+                    }
+                });
+            }
+        });
+    }
 </script>

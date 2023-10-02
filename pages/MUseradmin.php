@@ -1,11 +1,27 @@
+<style>
+    .table thead tr th {
+        background-color: #BA0900;
+        color: #ffffff;
+        border: 1px solid white;
+        height: 10px;
+        font-weight: bold;
+    }
+
+    .table tbody tr td {
+        background-color: white;
+        border: 1px solid white;
+    }
+</style>
+
 <?php
 include "./components/navbarAdmin.php";
 include "./components/sidebarAdmin.php";
 ?>
+
 <div class="content mt-5">
-    <table class="table" id="group_list">
+    <table class="table table-striped" id="group_list">
         <thead>
-            <tr>
+            <tr >
                 <th>รหัสกลุ่ม</th>
                 <th>สาขา</th>
                 <th>กลุ่ม</th>
@@ -27,7 +43,7 @@ include "./components/sidebarAdmin.php";
                     <td><?php echo $data['Major_ID'] ?></td>
                     <td><?php echo $data['Group_Name'] ?></td>
                     <td><?php echo $data['Teacher_Lastname']," ",$data['Teacher_Lastname'] ?></td>
-                    <td><button>แก้ไข</button></td>
+                    <td class="text-center"><button type="button" class="btn btn-warning text-white" style="width: 8rem;">แก้ไข</button></td>
                 </tr>
             <?php  } ?>
         </tbody>

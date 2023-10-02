@@ -94,8 +94,11 @@ function generateNewProvinceId($conn)
     $newNumberPart = $numberPart + $increment;
 
     $newLeaveId = "L" . str_pad($newNumberPart, 3, '0', STR_PAD_LEFT);
+    return $newLeaveId;
+  } else {
+    $newLeaveId = 'L001';
+    return $newLeaveId;
   }
-  return $newLeaveId;
 }
 
 ?>
