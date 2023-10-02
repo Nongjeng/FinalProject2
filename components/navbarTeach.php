@@ -14,7 +14,7 @@ include "./Controllers/selectAdmin.php"
                 <img src="./public/img/TATC_Logo.png" width="70" class="rounded-circle border-10px">
             </li>
             <li class="nav-item d-flex align-items-center ml">
-                <a class="nav-link text-white" href="?page=homeadmin">วิทยาลัยเทคนิคสัตหีบ</a>
+                <a class="nav-link text-white" href="?page=homeTeacher">วิทยาลัยเทคนิคสัตหีบ</a>
             </li>
         </ul>
         
@@ -22,11 +22,15 @@ include "./Controllers/selectAdmin.php"
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-2"></ul>
             <ul class="navbar-nav mt-1">
                 <li class="nav-item" id="nav-item">
-                <a href="?page=Useradmin" class="text-white no-underline"><i class="bi bi-person-circle fs-5"></i>&nbsp;&nbsp;<?php echo "$Prefix_Name"; ?>&nbsp;&nbsp;<?php echo "$Teacher_Name  $Teacher_Lastname"; ?></a>
+                <a href="?page=UserTeacher" class="text-white no-underline"><i class="bi bi-person-circle fs-5"></i>&nbsp;&nbsp;<?php echo "$Prefix_Name"; ?>&nbsp;&nbsp;<?php echo "$Teacher_Name  $Teacher_Lastname"; ?></a>
                 </li>
                 <li class="nav-item" id="nav-item">
                     <a href="?page=log_outAD" title="ออกจากระบบ" class="text-white no-underline" data-bs-toggle="tooltip"> <i class="bi bi-box-arrow-right fs-4"></i></a>
                 </li>
+                <li class="nav-item" id="nav-item">
+                    <a href="?page=choose" title="สลับบัญชี" class="text-white no-underline" data-bs-toggle="tooltip"> <i class="fas fa-exchange-alt fs-4"></i></a>
+                </li>
+             
             </ul>
         </div>
     </div>

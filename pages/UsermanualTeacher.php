@@ -1,6 +1,6 @@
 <?php
-require_once "./components/navbar.php";
-require_once "./components/sidebar.php";
+include "./components/navbarTeach.php";
+include "./components/sidebarTeach.php";
 ?>
 <div class="content mt-5" style="text-align: center;">
     <i class="fas fa-exclamation-triangle fa-5x"></i>

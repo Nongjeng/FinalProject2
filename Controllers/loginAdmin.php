@@ -12,15 +12,28 @@ if(isset($_POST['login'])){
         $num_rows = mysqli_num_rows($sql_q);
 
         if ($num_rows == 1) {
-            echo '<script>
-            Swal.fire({
-              icon: "success",
-              title: "เข้าสู่ระบบสำเร็จ",
-              text: "ยินดีต้อนรับเข้าสู่ระบบ"
-            }).then(function() {
-              window.location.href = "?page=homeadmin";
-            });
-          </script>';
+            $row = mysqli_fetch_assoc($sql_q);
+            if ($row['Position_Admin'] == 1) {
+                echo '<script>
+                Swal.fire({
+                  icon: "success",
+                  title: "เข้าสู่ระบบสำเร็จ",
+                  text: "ยินดีต้อนรับเข้าสู่ระบบ"
+                }).then(function() {
+                  window.location.href = "?page=choose";
+                });
+                </script>';
+            } else {
+                echo '<script>
+                Swal.fire({
+                  icon: "success",
+                  title: "เข้าสู่ระบบสำเร็จ",
+                  text: "ยินดีต้อนรับเข้าสู่ระบบ"
+                }).then(function() {
+                  window.location.href = "?page=homeTeacher";
+                });
+                </script>';
+            }
         } else {
             echo '<script>
             Swal.fire({
@@ -30,8 +43,7 @@ if(isset($_POST['login'])){
             }).then(function() {
               window.location.href = "?page=loginAdmin";
             });
-          </script>';
-
+            </script>';
         }
     }
 }

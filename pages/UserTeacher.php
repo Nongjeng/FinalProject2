@@ -1,6 +1,6 @@
 <?php
-include "./components/navbarAdmin.php";
-include "./components/sidebarAdmin.php";
+include "./components/navbarTeach.php";
+include "./components/sidebarTeach.php";
 ?>
 <div class="content">
     <div class="card-body">
@@ -59,7 +59,7 @@ include "./components/sidebarAdmin.php";
             <!-- ปุ่มกลับหน้าหลัก -->
             <div class="row mt-3">
                 <div class="col-12 text-center">
-                    <button class="btn btn-success mr-3" onclick="window.location.href = '?page=EditTeacher';">แก้ไขข้อมูล</button>
+                    <button class="btn btn-success mr-3" onclick="window.location.href = '?page=EditUser';">แก้ไขข้อมูล</button>
                     <button class="btn btn-danger" onclick="window.location.href = '?page=homeTeacher';">กลับหน้าหลัก</button>
                 </div>
             </div>

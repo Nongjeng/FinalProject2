@@ -1,6 +1,6 @@
 <?php
-include "./components/sidebar.php";
-include "./components/navbar.php";
+include "./components/navbarAdmin.php";
+include "./components/sidebarAdmin.php";
 ?>
 <div class="content mt-5" style="text-align: center;">
     <i class="fas fa-exclamation-triangle fa-5x"></i>
