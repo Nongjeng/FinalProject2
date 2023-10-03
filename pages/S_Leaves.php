@@ -47,7 +47,7 @@ $result = mysqli_query($connect, $query);
 <div class="content">
     <div class="container">
         <div class="text-start">
-            <H3 class="mt-5">ประวัติการลา</H3>
+            <H3 class="mt-5">ประวัติการลาประจำวิชา</H3>
         </div>
         <table class="table table-striped m-0" id="leaveHis">
             <thead>
@@ -231,11 +231,11 @@ $result = mysqli_query($connect, $query);
                                         </div>
                                         <?php if ($row['leave_status_id'] != 'LS03') { ?>
                                             <div class="modal-footer d-flex justify-content-between border-0">
-                                                <button type="button" class="btn btn-dark">พิมพ์เอกสาร</button>
+                                                <!-- <button type="button" class="btn btn-dark">พิมพ์เอกสาร</button> -->
                                                 <?php if ($row['leave_status_id'] != 'LS02') { ?>
                                                     <div>
-                                                        <button type="button" class="btn btn-success" onclick="confirmSuccess('<?php echo $row['leave_id'] ?>')">อนุมัติการลา</button>
-                                                        <button type="button" class="btn btn-danger" onclick="confirmCancellation('<?php echo $row['leave_id'] ?>')">ยกเลิกการลา</button>
+                                                        <!-- <button type="button" class="btn btn-success" onclick="confirmSuccess('<?php echo $row['leave_id'] ?>')">อนุมัติการลา</button>
+                                                        <button type="button" class="btn btn-danger" onclick="confirmCancellation('<?php echo $row['leave_id'] ?>')">ยกเลิกการลา</button> -->
                                                     </div>
                                                 <?php } ?>
                                             </div>

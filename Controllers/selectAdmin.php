@@ -10,7 +10,7 @@ if ($result) {
     $Teacher_Lastname = $row["Teacher_Lastname"];
     $Teacher_Address = $row["Teacher_Address"];
     $Position_ID = $row["Position_ID"];
-
+    $Position_Admin = $row["Position_Admin"];
 
 
     $sql_Prefix = "SELECT * FROM prefix WHERE Prefix_ID ='$Prefix_ID'";
@@ -19,6 +19,7 @@ if ($result) {
         $row = mysqli_fetch_assoc($result_prefix);
         $Prefix_Name = $row['Prefix_Name'];
     }
+
 } else {
     echo "Eror in " . $sql;
 }

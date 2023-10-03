@@ -46,7 +46,7 @@ $result = mysqli_query($connect, $query);
 <div class="content">
     <div class="container">
         <div class="text-start">
-            <H3 class="mt-5">ประวัติการลา</H3>
+            <H3 class="mt-5">ประวัติการลาประจำช้ันเรียน</H3>
         </div>
         <table class="table table-striped m-0" id="leaveHis">
             <thead>
