@@ -20,8 +20,18 @@ if ($result) {
         $Prefix_Name = $row['Prefix_Name'];
     }
 
+    $sql_Position = "SELECT * FROM position WHERE Position_ID ='$Position_ID'";
+    $result_Position = mysqli_query($connect, $sql_Position);
+    if ($result_Position) {
+        $row = mysqli_fetch_assoc($result_Position);
+        $Position_Name = $row['Position_Name'];
+    }else{
+        echo "Error in ". $sql_Position;
+    }
+
+
+
 } else {
     echo "Eror in " . $sql;
 }
-
 ?>

@@ -1,6 +1,11 @@
 <?php
 include "./components/navbarAdmin.php";
 include "./components/sidebarAdmin.php";
+$sql = "SELECT * FROM teacher WHERE Teacher_ID ='$Teacher_ID'";
+$result = mysqli_query($connect, $sql);
+if ($result) {
+    $row = mysqli_fetch_assoc($result);
+}
 ?>
 <div class="content">
     <div class="card-body">
@@ -19,17 +24,17 @@ include "./components/sidebarAdmin.php";
                     </div>
                     <div class="form-group">
                         <label for="prefix">คำนำหน้าชื่อ :</label>
-                        <input type="text" class="form-control" id="prefix" value="<?php echo $Prefix_ID; ?>" disabled>
+                        <input type="text" class="form-control" id="prefix" value="<?php echo $Prefix_Name; ?>" disabled>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="form-group">
                         <label for="teacher-name">ชื่อ :</label>
-                        <input type="text" class="form-control" id="teacher-name" value="<?php echo $Teacher_Name; ?>" disabled>
+                        <input type="text" class="form-control" id="teacher-name" value="<?php echo $row["Teacher_Name"]; ?>" disabled>
                     </div>
                     <div class="form-group">
                         <label for="teacher-lastname">นามสกุล :</label>
-                        <input type="text" class="form-control" id="teacher-lastname" value="<?php echo $Teacher_Lastname; ?>" disabled>
+                        <input type="text" class="form-control" id="teacher-lastname" value="<?php echo  $row["Teacher_Lastname"]; ?>" disabled>
                     </div>
                 </div>
             </div>
@@ -40,27 +45,27 @@ include "./components/sidebarAdmin.php";
                 <div class="col-12">
                     <div class="form-group">
                         <label for="teacher-address">ที่อยู่ :</label>
-                        <textarea class="form-control" id="teacher-address" rows="4" disabled><?php echo $Teacher_Address; ?></textarea>
+                        <textarea class="form-control" id="teacher-address" rows="4" disabled><?php echo $row["Teacher_Address"]; ?></textarea>
                     </div>
                 </div>
             </div>
 
             <!-- ส่วนของตำแหน่ง -->
             <div class="row mt-3">
-                <h5 style="font-weight: bold;">ตำแหน่ง</h5>
-                <div class="col-12">
-                    <div class="form-group">
-                        <label for="position">ตำแหน่ง :</label>
-                        <input type="text" class="form-control" id="position" value="<?php echo $Position_ID; ?>" disabled>
+                    <h5 style="font-weight: bold;">ตำแหน่ง</h5>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label for="position">ตำแหน่ง :</label>
+                            <input type="text" class="form-control" id="position" name="position" value="<?php echo $Position_Name; ?>" disabled>
+                        </div>
                     </div>
                 </div>
-            </div>
 
             <!-- ปุ่มกลับหน้าหลัก -->
             <div class="row mt-3">
                 <div class="col-12 text-center">
-                    <button class="btn btn-success mr-3" onclick="window.location.href = '?page=EditTeacher';">แก้ไขข้อมูล</button>
-                    <button class="btn btn-danger" onclick="window.location.href = '?page=homeTeacher';">กลับหน้าหลัก</button>
+                <button class="btn btn-success mr-3" onclick="window.location.href = '?page=Editadmin';">แก้ไขข้อมูล</button>
+                    <button class="btn btn-danger" onclick="window.location.href = '?page=homeadmin';">กลับหน้าหลัก</button>
                 </div>
             </div>
         </div>

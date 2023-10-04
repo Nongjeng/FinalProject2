@@ -1,13 +1,13 @@
 <?php
-include "./components/navbarTeach.php";
-include "./components/sidebarTeach.php";
-include "./Controllers/EditTeacher.php";
+include "./components/navbarAdmin.php";
+include "./components/sidebarAdmin.php";
+include "./Controllers/Editadmin.php";
+$sql = "SELECT * FROM teacher WHERE Teacher_ID ='$Teacher_ID'";
 $result = mysqli_query($connect, $sql);
 if ($result) {
     $row = mysqli_fetch_assoc($result);
 }
 ?>
-
 <div class="content">
     <div class="card-body">
         <div class="container mt-3">
@@ -67,7 +67,7 @@ if ($result) {
                 <div class="row mt-3">
                     <div class="col-12 text-center">
                         <button class="btn btn-success mr-3" type="submit" name="update">บันทึกการแก้ไข</button>
-                        <a class="btn btn-danger" href="?page=UserTeacher">กลับหน้าหลัก</a>
+                        <a class="btn btn-danger" href="?page=UserAdmin">กลับหน้าหลัก</a>
                     </div>
                 </div>
             </form>
