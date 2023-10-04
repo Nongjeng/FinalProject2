@@ -22,7 +22,8 @@ if ($result) {
                     <div class="col-12 col-md-6">
                         <div class="form-group">
                             <label for="teacher-id">รหัสครู :</label>
-                            <input type="text" class="form-control" id="teacher-id" name="teacher-id" value="<?php echo $Teacher_ID; ?>" disabled>
+                            <input type="hidden" name="teacherid"  value="<?php echo $row["Teacher_ID"]; ?>">
+                            <input type="text" class="form-control" id="teacher-id"  value="<?php echo $row["Teacher_ID"]; ?>" disabled>
                         </div>
                         <div class="form-group">
                             <label for="prefix">คำนำหน้าชื่อ :</label>

@@ -21,7 +21,7 @@ include "./components/sidebarAdmin.php";
 <div class="content mt-5">
     <table class="table table-striped" id="group_list">
         <thead>
-            <tr >
+            <tr>
                 <th>รหัสกลุ่ม</th>
                 <th>สาขา</th>
                 <th>กลุ่ม</th>
@@ -42,8 +42,11 @@ include "./components/sidebarAdmin.php";
                     <td><?php echo $data['Group_ID'] ?></td>
                     <td><?php echo $data['Major_ID'] ?></td>
                     <td><?php echo $data['Group_Name'] ?></td>
-                    <td><?php echo $data['Teacher_Lastname']," ",$data['Teacher_Lastname'] ?></td>
-                    <td class="text-center"><button type="button" class="btn btn-warning text-white" style="width: 8rem;">แก้ไข</button></td>
+                    <td><?php echo $data['Teacher_Name'], " ", $data['Teacher_Lastname'] ?></td>
+                    <td class="text-center"><button type="button" class="btn" onclick="window.location.href = '?page=EditGroup&Group_ID=<?php echo $data['Group_ID'] ?>';" style="background-color: #BA0900; color:#ffffff">
+                            <i class="bi bi-info-circle-fill fs-5"></i>
+                        </button>
+                    </td>
                 </tr>
             <?php  } ?>
         </tbody>

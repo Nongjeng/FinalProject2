@@ -174,15 +174,6 @@ $result = mysqli_query($connect, $query);
                                                         <div class="table-responsive">
                                                             <div class="overflow-y-scroll">
                                                                 <div class="table border border-1" style="height: 8rem;">
-                                                                    <?php
-                                                                    // var_dump($_SESSION['selectedDays']);
-                                                                    // for ($i=0;$i<count($_SESSION['selectedDays']);$i++){
-                                                                    //     echo $_SESSION['selectedDays'][$i];
-                                                                    // }
-                                                                    // foreach ($selectedDays as $selectedDay) {
-                                                                    //     echo $selectedDay;
-                                                                    // }
-                                                                    ?>
                                                                     <table class=" table">
                                                                         <thead>
                                                                             <tr>

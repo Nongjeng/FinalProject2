@@ -1,6 +1,54 @@
 <?php
 include "./components/navbarAdmin.php";
 include "./components/sidebarAdmin.php";
+$currentDate = date('Y-m-d');
+// สร้างวันที่เริ่มต้นของปีปัจจุบัน
+$startOfYear = date('Y-01-01', strtotime($currentDate));
+
+// สร้างวันที่สิ้นสุดของปีปัจจุบัน
+$endOfYear = date('Y-12-31', strtotime($currentDate));
+
+// ส่งคำสั่ง SQL เพื่อคำนวณจำนวนใบลาทั้งหมดของปีปัจจุบัน
+$query_leave_this_year = "SELECT COUNT(*) AS leave_count FROM leaves WHERE write_date BETWEEN '$startOfYear' AND '$endOfYear'";
+$result_leave_this_year = mysqli_query($connect, $query_leave_this_year);
+
+// ดึงข้อมูลจากคำสั่ง SQL
+$row_leave_this_year = mysqli_fetch_assoc($result_leave_this_year);
+
+// แสดงผลจำนวนใบลาทั้งหมดของปีปัจจุบัน
+$leaveCountThisYear = isset($row_leave_this_year['leave_count']) ? $row_leave_this_year['leave_count'] : 0;
+
+
+
+// สร้างวันที่เริ่มต้นของเดือนปัจจุบัน
+$startOfMonth = date('Y-m-01', strtotime($currentDate));
+
+// สร้างวันที่สิ้นสุดของเดือนปัจจุบัน
+$endOfMonth = date('Y-m-t', strtotime($currentDate));
+
+// ส่งคำสั่ง SQL เพื่อคำนวณจำนวนใบลาทั้งหมดของเดือนปัจจุบัน
+$query_leave_this_month = "SELECT COUNT(*) AS leave_count FROM leaves WHERE write_date BETWEEN '$startOfMonth' AND '$endOfMonth'";
+$result_leave_this_month = mysqli_query($connect, $query_leave_this_month);
+
+// ดึงข้อมูลจากคำสั่ง SQL
+$row_leave_this_month = mysqli_fetch_assoc($result_leave_this_month);
+
+// แสดงผลจำนวนใบลาทั้งหมดของเดือนปัจจุบัน
+$leaveCountThisMonth = isset($row_leave_this_month['leave_count']) ? $row_leave_this_month['leave_count'] : 0;
+
+
+
+
+// ส่งคำสั่ง SQL เพื่อคำนวณจำนวนใบลาทั้งหมดของวันนี้
+$query_leave_today = "SELECT COUNT(*) AS leave_count FROM leaves WHERE write_date = '$currentDate'";
+$result_leave_today = mysqli_query($connect, $query_leave_today);
+
+// ดึงข้อมูลจากคำสั่ง SQL
+$row_leave_today = mysqli_fetch_assoc($result_leave_today);
+
+// แสดงผลจำนวนใบลาทั้งหมดของวันนี้
+$leaveCountToday = isset($row_leave_today['leave_count']) ? $row_leave_today['leave_count'] : 0;
+
 
 // ส่งคำสั่ง SQL เพื่อคำนวณจำนวนการลาทั้งหมดของวิชาที่มากที่สุด
 $query_most_leave_subject = "SELECT s.Subject_Name, COUNT(ld.Leave_ID) AS leave_count
@@ -56,7 +104,7 @@ $row_least_leave_subject = mysqli_fetch_assoc($result_least_leave_subject);
             <div class="card flex-grow-1 me-3 bg-info h-120 w-120">
                 <div class="card-body">
                     <h7 class="card-title text-white">จำนวนการลาทั้งหมดของวัน</h7>
-                    <p class="card-text">จำนวน: <span id="totalLeaveDay"><?php echo $row_total_leave_day['total_day']; ?></span> วัน</p>
+                    <p class="card-text">จำนวน: <span id="totalLeaveDay"><?php echo $leaveCountToday; ?></span>ครั้ง</p>
                 </div>
             </div>
 
@@ -64,7 +112,7 @@ $row_least_leave_subject = mysqli_fetch_assoc($result_least_leave_subject);
             <div class="card flex-grow-1 me-3 bg-warning h-120 w-120">
                 <div class="card-body">
                     <h7 class="card-title text-white">จำนวนการลาทั้งหมดของเดือน</h7>
-                    <p class="card-text">จำนวน: <span id="totalLeaveMonth"><?php echo $row_total_leave_month['total_month']; ?></span> วัน</p>
+                    <p class="card-text">จำนวน: <span id="totalLeaveMonth"><?php echo $leaveCountThisMonth; ?></span> ครั้ง</p>
                 </div>
             </div>
 
@@ -72,7 +120,7 @@ $row_least_leave_subject = mysqli_fetch_assoc($result_least_leave_subject);
             <div class="card flex-grow-1 bg-danger h-120 w-120">
                 <div class="card-body">
                     <h7 class="card-title text-white">จำนวนการลาทั้งหมดของปี</h7>
-                    <p class="card-text">จำนวน: <span id="totalLeaveYear"><?php echo $row_total_leave_year['total_year']; ?></span> วัน</p>
+                    <p class="card-text">จำนวน: <span id="totalLeaveYear"><?php echo $leaveCountThisYear; ?></span>ครั้ง</p>
                 </div>
             </div>
         </div>
