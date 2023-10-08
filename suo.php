@@ -204,4 +204,149 @@
             }
         });
     }
+
+    function confirmDeleteSemester(Semester_ID) {
+        console.log(Semester_ID);
+        Swal.fire({
+            title: 'ต้องการลบภาคเรียน?',
+            text: 'คุณแน่ใจหรือไม่ว่าต้องการลบภาคเรียนนี้?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'ลบข้อมูล',
+            cancelButtonText: 'ยกเลิก'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // ส่วนของ PHP ที่ใช้ในการอัปเดตฐานข้อมูล
+                $.ajax({
+                    type: 'POST',
+                    url: 'editTerm.php', // ระบุ URL ที่จะทำการอัปเดตในไฟล์นี้
+                    data: {
+                        Semester_ID: Semester_ID
+                    },
+                    success: function(response) {
+                        if (response === 'success') {
+                            Swal.fire({
+                                title: 'ลบข้อมูลสำเร็จ',
+                                icon: 'success',
+                                confirmButtonText: 'OK'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload();
+                                }
+                            });
+                        } else {
+                            Swal.fire({
+                                title: 'เกิดข้อผิดพลาด',
+                                text: 'ไม่สามารถลบข้อมูลนี้ได้',
+                                icon: 'error',
+                                confirmButtonText: 'OK'
+                            });
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+    function confirmDeleteSubject(Subject_ID) {
+        Swal.fire({
+            title: 'ต้องการลบวิชานี้?',
+            text: 'คุณแน่ใจหรือไม่ว่าต้องการลบวิชานี้?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'ลบข้อมูล',
+            cancelButtonText: 'ยกเลิก'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // ส่วนของ PHP ที่ใช้ในการอัปเดตฐานข้อมูล
+                $.ajax({
+                    type: 'POST',
+                    url: 'editSubject.php', // ระบุ URL ที่จะทำการอัปเดตในไฟล์นี้
+                    data: {
+                        Subject_ID: Subject_ID
+                    },
+                    success: function(response) {
+                        if (response === 'success') {
+                            Swal.fire({
+                                title: 'ลบข้อมูลสำเร็จ',
+                                icon: 'success',
+                                confirmButtonText: 'OK'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload();
+                                }
+                            });
+                        } else {
+                            Swal.fire({
+                                title: 'เกิดข้อผิดพลาด',
+                                text: 'ไม่สามารถลบข้อมูลนี้ได้',
+                                icon: 'error',
+                                confirmButtonText: 'OK'
+                            });
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+    function confirmDeleteSchedule(Schedule_ID) {
+        console.log(Schedule_ID)
+        Swal.fire({
+            title: 'ต้องการลบตารางเรียนนี้?',
+            text: 'คุณแน่ใจหรือไม่ว่าต้องการลบตารางเรียนนี้?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'ลบข้อมูล',
+            cancelButtonText: 'ยกเลิก'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // ส่วนของ PHP ที่ใช้ในการอัปเดตฐานข้อมูล
+                $.ajax({
+                    type: 'POST',
+                    url: 'editSchedule.php', // ระบุ URL ที่จะทำการอัปเดตในไฟล์นี้
+                    data: {
+                        Schedule_ID: Schedule_ID
+                    },
+                    success: function(response) {
+                        if (response === 'success') {
+                            Swal.fire({
+                                title: 'ลบข้อมูลสำเร็จ',
+                                icon: 'success',
+                                confirmButtonText: 'OK'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload();
+                                }
+                            });
+                        } else {
+                            Swal.fire({
+                                title: 'เกิดข้อผิดพลาด',
+                                text: 'ไม่สามารถลบข้อมูลนี้ได้',
+                                icon: 'error',
+                                confirmButtonText: 'OK'
+                            });
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+
+    function printDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
+    }
+
+    function printDocument(leaveId) {
+        // Redirect to PDFleave.php with leave_id as a query parameter
+        window.location.href = `?page=PDFleave&leave_id=${leaveId}`;
+    }
 </script>

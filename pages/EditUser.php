@@ -111,8 +111,8 @@ include_once "./Controllers/EditUser.php";
                                 $sql_subdistrict = "SELECT * FROM subdistrict WHERE district_id=$District_ID";
                                 $sql_subdistrict_q = mysqli_query($connect, $sql_subdistrict);
                                 ?>
-                                <select name="provinces_id" id="provinces" class="form-control" style="margin-left: 10px;">
-                                    <option value="<? echo $Provinces_ID ?>" selected><?php echo $fetch_all['name_th']; ?></option>
+                                <select name="provincesid" id="provinces" class="form-control" style="margin-left: 10px;">
+                                    <option value="<?= $fetch_all['provinces_id'] ?>"><?php echo $fetch_all['name_th']; ?></option>
                                     <?php foreach ($sql_provinces_q as $data) { ?>
                                         <option value="<?= $data['provinces_id'] ?>"><?= $data['name_th'] ?></option>
                                     <?php } ?>
@@ -168,4 +168,3 @@ include_once "./Controllers/EditUser.php";
         </form>
     </div>
 </div>
-<?php include "./Controllers/scrip.php"; ?>

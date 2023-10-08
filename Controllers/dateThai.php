@@ -52,24 +52,26 @@ return $currentdateTime;
   }
 
   function convertMonth($englishMonth) {
-      $monthMapping = [
-          'Jan' => 'ม.ค.',
-          'Feb' => 'ก.พ.',
-          'Mar' => 'มี.ค.',
-          'Apr' => 'เม.ย.',
-          'May' => 'พ.ค.',
-          'Jun' => 'มิ.ย.',
-          'Jul' => 'ก.ค.',
-          'Aug' => 'ส.ค.',
-          'Sep' => 'ก.ย.',
-          'Oct' => 'ต.ค.',
-          'Nov' => 'พ.ย.',
-          'Dec' => 'ธ.ค.'
-      ];
-  
-      if (array_key_exists($englishMonth, $monthMapping)) {
-          return $monthMapping[$englishMonth];
-      } else {
-          return false;
-      }
-  }
+    $monthMapping = [
+        'jan' => 'ม.ค.',
+        'feb' => 'ก.พ.',
+        'mar' => 'มี.ค.',
+        'apr' => 'เม.ย.',
+        'may' => 'พ.ค.',
+        'jun' => 'มิ.ย.',
+        'jul' => 'ก.ค.',
+        'aug' => 'ส.ค.',
+        'sep' => 'ก.ย.',
+        'oct' => 'ต.ค.',
+        'nov' => 'พ.ย.',
+        'dec' => 'ธ.ค.'
+    ];
+
+    $englishMonthLower = strtolower($englishMonth);
+
+    if (array_key_exists($englishMonthLower, $monthMapping)) {
+        return $monthMapping[$englishMonthLower];
+    } else {
+        return false;
+    }
+}

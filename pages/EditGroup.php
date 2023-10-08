@@ -40,7 +40,7 @@ $groupID = $_GET['Group_ID'];
             if ($data = mysqli_fetch_assoc($sql_list_group_q)) {
             ?>
                 <div class="card-body">
-                <form method="post">
+                    <form method="post">
                         <div class="row mt-3">
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
@@ -53,50 +53,49 @@ $groupID = $_GET['Group_ID'];
                                     <input type="text" class="form-control" value="<?= $data['Major_ID'] ?>" disabled>
                                 </div>
                             </div>
-                        <? } ?>
-                        <div class="col-12 col-md-6">
-                            <div class="form-group">
-                                <label for="teacher">ชื่ออาจารย์:</label>
-                                <?php
-                                $sql_teacher = "SELECT * FROM `teacher`";
-                                $sql_teacher_p = mysqli_query($connect, $sql_teacher);
-                                ?>
-                                <select class="form-control" id="teacher" name="teacher_id">
-                                    <option value="<?php echo $data['Teacher_ID']; ?>" selected>
-                                        <?php echo $data['Teacher_Name'] . ' ' . $data['Teacher_Lastname']; ?>
-                                    </option>
-                                    <?php foreach ($sql_teacher_p as $teacher) : ?>
-                                        <option value="<?php echo $teacher['Teacher_ID']; ?>">
-                                            <?php echo $teacher['Teacher_Name'] . ' ' . $teacher['Teacher_Lastname']; ?>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="teacher">ชื่ออาจารย์:</label>
+                                    <?php
+                                    $sql_teacher = "SELECT * FROM `teacher`";
+                                    $sql_teacher_p = mysqli_query($connect, $sql_teacher);
+                                    ?>
+                                    <select class="form-control" id="teacher" name="teacher_id">
+                                        <option value="<?php echo $data['Teacher_ID']; ?>" selected>
+                                            <?php echo $data['Teacher_Name'] . ' ' . $data['Teacher_Lastname']; ?>
                                         </option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                            <div class="form-group mt-2">
-                                <label for="student-level">ชื่อกลุ่ม :</label>
-                                <input type="text" class="form-control" value="<?= $data['Group_Name'] ?>" disabled>
-                            </div>
-                        </div>
-                        </div>
-                        <!-- เพิ่มปุ่ม "บันทึก" ด้านล่าง -->
-                       
-                            <div class="row mt-3">
-                                <div class="col-12">
-                                    <div class="d-flex justify-content-end">
-                                        <button type="submit" class="btn btn-primary" name="Editgroup">บันทึก</button>
-                                    </div>
+                                        <?php foreach ($sql_teacher_p as $teacher) : ?>
+                                            <option value="<?php echo $teacher['Teacher_ID']; ?>">
+                                                <?php echo $teacher['Teacher_Name'] . ' ' . $teacher['Teacher_Lastname']; ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group mt-2">
+                                    <label for="student-level">ชื่อกลุ่ม :</label>
+                                    <input type="text" class="form-control" value="<?= $data['Group_Name'] ?>" disabled>
                                 </div>
                             </div>
-                        </form>
-
-
+                        </div>
+                        <!-- เพิ่มปุ่ม "บันทึก" ด้านล่าง -->
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-primary" name="Editgroup">บันทึก</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-   
+            <?php } else {
+                echo "ไม่พบข้อมูลกลุ่ม";
+            } ?>
+
         </div>
     </div>
 
 
-    <table class="table table-striped" id="group_list">
+    <table class="table table-striped" id="group1_list">
         <thead>
             <tr>
                 <th>รหัสนักศึกษา</th>
@@ -134,7 +133,7 @@ $groupID = $_GET['Group_ID'];
 </div>
 <script>
     $(document).ready(function() {
-        $('#group_list').DataTable({
+        $('#group1_list').DataTable({
             pageLength: 10,
             paging: true,
             ordering: true,

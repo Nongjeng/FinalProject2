@@ -1,8 +1,8 @@
 <?php
 $host = "localhost";
-$username = "planetco_it65-4";
-$password = "it65-4";
-$dbname = "planetco_it65-4";
+$username = "root";
+$password = "";
+$dbname = "project";
 
 // สร้างการเชื่อมต่อ
 $connect = mysqli_connect($host, $username, $password,$dbname);

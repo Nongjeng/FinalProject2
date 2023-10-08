@@ -19,6 +19,9 @@ include "./components/sidebarAdmin.php";
 ?>
 
 <div class="content mt-5">
+    <div class="text-start">
+        <h3 class="">จัดการกลุ่มเรียน</h3>
+    </div>
     <table class="table table-striped" id="group_list">
         <thead>
             <tr>

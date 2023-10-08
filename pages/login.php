@@ -41,10 +41,7 @@
                                 <label for="" class="fs-6">สำหรับนักศึกษา</label>
                             </div>
                             <div class="d-flex justify-content-center mt-3">
-                                <label for="" class="fs-6">ชื่อผู้ใช้ให้ใส่รหัสนักศึกษาของตนเอง</label>
-                            </div>
-                            <div class="d-flex justify-content-center mt-2">
-                                <label for="" class="fs-6">และรหัสผ่าน 1234 เช่น ชื่อผู้ใช้ 65309010005 รหัสผ่าน 1234</label>
+                                <label for="" class="fs-6">ชื่อผู้ใช้ให้ใส่รหัสนักศึกษาของตนเองและรหัสผ่าน 1234</label>
                             </div>
                             <div class="d-flex justify-content-center mt-3">
                                 <label for="" class="fs-6">สำหรับครู อาจารย์</label>

@@ -11,7 +11,7 @@ require_once "./components/boostrap.html";
                         <div class="mb-md-0 mt-md-4 pb-2 ">
                                 <h2 class="fw-bold mb-4 text-uppercase">การเข้าสู่ระบบโดย</h2>
                                 <div class="form-outline form-white mb-4">
-                                    <a href="?page=loginAdmin"> <button class="btn btn-outline-light btn-lg px-5" >ผู้ดูแลระบบ</button></a>
+                                    <a href="?page=homeadmin"> <button class="btn btn-outline-light btn-lg px-5" >ผู้ดูแลระบบ</button></a>
                                 </div>
 
                                 <div class="form-outline form-white mb-4">

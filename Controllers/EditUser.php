@@ -6,9 +6,10 @@
         $updatedSTD_Phone = $_POST['phone-number'];
         $updatedParent_Name = $_POST['parent-name'];
         $updatePassword = $_POST['password'];
-        $updatedProvinces_ID = $_POST['provinces_id']; 
+        $updatedProvinces_ID =$_POST['provincesid']; 
         $updatedDistricts = $_POST['districts'];
         $updatedSubdistricts = $_POST['subdistricts'];
+
         // อัปเดตค่าในฐานข้อมูล
         $sql = "UPDATE std SET STD_Birth = '$updatedSTD_Birth', STD_Address = '$updatedSTD_Address',
                 STD_Phone = '$updatedSTD_Phone', Password = '$updatePassword', Parent_Name = '$updatedParent_Name' , provinces_id = $updatedProvinces_ID,

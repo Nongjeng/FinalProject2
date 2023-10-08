@@ -233,10 +233,7 @@ $result = mysqli_query($connect, $query);
                                             <div class="modal-footer d-flex justify-content-between border-0">
                                                 <!-- <button type="button" class="btn btn-dark">พิมพ์เอกสาร</button> -->
                                                 <?php if ($row['leave_status_id'] != 'LS02') { ?>
-                                                    <div>
-                                                        <!-- <button type="button" class="btn btn-success" onclick="confirmSuccess('<?php echo $row['leave_id'] ?>')">อนุมัติการลา</button>
-                                                        <button type="button" class="btn btn-danger" onclick="confirmCancellation('<?php echo $row['leave_id'] ?>')">ยกเลิกการลา</button> -->
-                                                    </div>
+
                                                 <?php } ?>
                                             </div>
                                         <?php } ?>
@@ -250,9 +247,8 @@ $result = mysqli_query($connect, $query);
         </table>
     </div>
 </div>
-
-<?php include "./Controllers/scrip.php"; ?>
 <script>
+    
     $(document).ready(function() {
         $('#leaveHis').DataTable({
             pageLength: 5,

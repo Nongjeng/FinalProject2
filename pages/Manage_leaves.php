@@ -174,6 +174,15 @@ $result = mysqli_query($connect, $query);
                                                         <div class="table-responsive">
                                                             <div class="overflow-y-scroll">
                                                                 <div class="table border border-1" style="height: 8rem;">
+                                                                    <?php
+                                                                    // var_dump($_SESSION['selectedDays']);
+                                                                    // for ($i=0;$i<count($_SESSION['selectedDays']);$i++){
+                                                                    //     echo $_SESSION['selectedDays'][$i];
+                                                                    // }
+                                                                    // foreach ($selectedDays as $selectedDay) {
+                                                                    //     echo $selectedDay;
+                                                                    // }
+                                                                    ?>
                                                                     <table class=" table">
                                                                         <thead>
                                                                             <tr>
@@ -225,7 +234,7 @@ $result = mysqli_query($connect, $query);
                                         </div>
                                         <?php if ($row['leave_status_id'] != 'LS03') { ?>
                                             <div class="modal-footer d-flex justify-content-between border-0">
-                                                <button type="button" class="btn btn-dark">พิมพ์เอกสาร</button>
+                                                <button type="button" class="btn btn-dark" onclick="printDocument('<?php echo $row['leave_id'] ?>')">พิมพ์เอกสาร</button>
                                                 <?php if ($row['leave_status_id'] != 'LS02') { ?>
                                                     <div>
                                                         <button type="button" class="btn btn-success" onclick="confirmSuccess('<?php echo $row['leave_id'] ?>')">อนุมัติการลา</button>
@@ -244,9 +253,90 @@ $result = mysqli_query($connect, $query);
         </table>
     </div>
 </div>
-
-<?php include "./Controllers/scrip.php"; ?>
 <script>
+    function confirmSuccess(leave_id) {
+        Swal.fire({
+            title: 'ต้องการอนุมัติการลา?',
+            text: 'คุณแน่ใจหรือไม่ว่าต้องการอนุมัติการลานี้?',
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonText: 'ตกลง',
+            cancelButtonText: 'ยกเลิก'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // ส่วนของ PHP ที่ใช้ในการอัปเดตฐานข้อมูล
+                $.ajax({
+                    type: 'POST',
+                    url: 'ajax2.php', // ระบุ URL ที่จะทำการอัปเดตในไฟล์นี้
+                    data: {
+                        leave_id: leave_id
+                    },
+                    success: function(response) {
+                        if (response === 'success') {
+                            Swal.fire({
+                                title: 'อนุมัติสำเร็จ',
+                                icon: 'success',
+                                confirmButtonText: 'OK'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload();
+                                }
+                            });
+                        } else {
+                            Swal.fire({
+                                title: 'เกิดข้อผิดพลาด',
+                                text: 'ไม่สามารถยกเลิกการลาได้',
+                                icon: 'error',
+                                confirmButtonText: 'OK'
+                            });
+                        }
+                    }
+                });
+            }
+        });
+    }
+    function confirmCancellation(leave_id) {
+        Swal.fire({
+            title: 'ต้องการยกเลิกการลา?',
+            text: 'คุณแน่ใจหรือไม่ว่าต้องการยกเลิกการลานี้?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'ตกลง',
+            cancelButtonText: 'ยกเลิก'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // ส่วนของ PHP ที่ใช้ในการอัปเดตฐานข้อมูล
+                $.ajax({
+                    type: 'POST',
+                    url: 'ajax.php', // ระบุ URL ที่จะทำการอัปเดตในไฟล์นี้
+                    data: {
+                        leave_id: leave_id
+                    },
+                    success: function(response) {
+                        if (response === 'success') {
+                            Swal.fire({
+                                title: 'ยกเลิกสำเร็จ',
+                                icon: 'success',
+                                confirmButtonText: 'OK'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload();
+                                }
+                            });
+                        } else {
+                            Swal.fire({
+                                title: 'เกิดข้อผิดพลาด',
+                                text: 'ไม่สามารถยกเลิกการลาได้',
+                                icon: 'error',
+                                confirmButtonText: 'OK'
+                            });
+                        }
+                    }
+                });
+            }
+        });
+    }
+    
     $(document).ready(function() {
         $('#leaveHis').DataTable({
             pageLength: 5,
@@ -258,4 +348,19 @@ $result = mysqli_query($connect, $query);
             }
         });
     });
+    function printDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
+    }
+
+    function printDocument(leaveId) {
+        // Redirect to PDFleave.php with leave_id as a query parameter
+        window.location.href = `?page=PDFleave2&leave_id=${leaveId}`;
+    }
 </script>

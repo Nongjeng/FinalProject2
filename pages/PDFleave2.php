@@ -12,11 +12,15 @@
 <body>
 
     <?php
-    include "./components/navbar.php";
+    include "./components/navbarAdmin.php";
     require_once "./Controllers/dateThai.php";
 
     if (isset($_GET['leave_id'])) {
         $leaveId = $_GET['leave_id'];
+        $sqCL = "SELECT * from leaves WHERE leave_id  = '$leaveId'";
+        $q_sqCL = mysqli_query($connect, $sqCL);
+        $row = mysqli_fetch_array($q_sqCL);
+        $STD_ID = $row['std_id'];
     }
     ?>
 
@@ -512,7 +516,8 @@
         </div>
     </div>
     <button type="button" class="btn btn-success" onclick="printDiv('printLeave')">Print</button>
-    <button type="button" class="btn btn-danger" onclick="window.location.href='?page=LeaveHistory'" >กลับหน้าหลัก</button>
+    <button type="button" class="btn btn-danger" onclick="window.location.href='?page=Manage_leaves'" >กลับหน้าหลัก</button>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
     <script type="text/javascript">
